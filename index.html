@@ -1064,6 +1064,123 @@
     color: var(--text-muted);
     font-style: italic;
   }
+
+  /* Community section: Phoenix Cup + Fantastic Four (full width, side by side) */
+  .community-section {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px 70px;
+    background-color: var(--panel-bg);
+  }
+
+  .community-section .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .community-section .section-label .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .community-section h2 {
+    font-size: 2.1rem;
+    color: var(--navy-dark);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 34px;
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .community-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--body-bg);
+    border: 1px solid rgba(179, 143, 79, 0.35);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .community-card > img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 10px 24px rgba(17, 29, 40, 0.2);
+  }
+
+  .community-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+  }
+
+  .community-card p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .community-card p strong {
+    color: var(--text-dark);
+  }
+
+  .community-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .community-links .btn {
+    padding: 8px 13px;
+    font-size: 0.82rem;
+    letter-spacing: 0.2px;
+  }
+
+  @media (max-width: 960px) {
+    .community-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .community-card {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .community-card > img {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1517,33 +1634,41 @@
 
 <div class="divider"></div>
 
-<!-- 7. Fantastic Four & Phoenix Cup Legacy -->
-<section class="product-section" id="fantastic-four" style="padding: 60px 30px; background-color: var(--panel-bg);">
+<!-- 7. Phoenix Cup Legacy & Fantastic Four -->
+<section class="community-section" id="fantastic-four">
   <span class="section-label"><span class="num">07</span>Community</span>
-  <h2 style="margin-bottom: 50px; text-align: center;">Phoenix Cup Legacy & Fantastic Four</h2>
+  <h2>Phoenix Cup Legacy &amp; Fantastic Four</h2>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1300px; margin: 0 auto;">
+  <div class="community-grid">
     <!-- LEFT: Phoenix Cup -->
-    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <img src="Phoenix background.jpg" alt="Phoenix Cup Legacy" style="width: 100%; max-width: 360px; height: auto; border-radius: 12px; border: 3px solid var(--gold); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); margin-bottom: 28px;">
-      <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; color: var(--navy-dark); margin-bottom: 16px;">Phoenix Cup Legacy</h3>
-      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; max-width: 320px;">Four self-organized international competitions (2014–2018), zero NGB support. Three reached official IWF calendar. Elite teams from seven countries: Germany, Belgium, Sweden, France (2), Austria, Switzerland, India.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 0;">
-        <a class="btn btn-ghost" href="https://youtu.be/BPHjb7dVKkc?si=xPt3jlKiJ1k_5Nkj" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 0.85rem;">2014</a>
-        <a class="btn btn-ghost" href="https://youtu.be/8ebx7BYTgUc?si=Oqqy9_87V3Pg3BTE" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 0.85rem;">2016</a>
-        <a class="btn btn-ghost" href="https://youtu.be/sWwPy0ppTkQ?si=-ygI1E_5l6HQo0QS" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 0.85rem;">2017</a>
-        <a class="btn btn-ghost" href="https://youtu.be/-Gj4oyJDxHE?si=8sJM5bU_L6j7UYQX" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 0.85rem;">2018</a>
+    <div class="community-card">
+      <img src="Phoenix background.jpg" alt="Phoenix Cup international weightlifting competition venue">
+      <div>
+        <h3>Phoenix Cup Legacy</h3>
+        <p><strong>2014&ndash;2018.</strong> Four self-organised international competitions, run single-handed with no NGB support &mdash; three reached the official IWF calendar.</p>
+        <p><strong>Seven countries.</strong> National teams from Germany, Belgium and Sweden, plus France (two teams), Austria, Switzerland and India.</p>
+        <p><strong>The proof.</strong> World-class competition can exist outside the institutions &mdash; built on one Olympian&rsquo;s vision and expertise alone.</p>
+        <div class="community-links">
+          <a class="btn btn-ghost" href="https://youtu.be/BPHjb7dVKkc?si=xPt3jlKiJ1k_5Nkj" target="_blank" rel="noopener noreferrer">2014</a>
+          <a class="btn btn-ghost" href="https://youtu.be/8ebx7BYTgUc?si=Oqqy9_87V3Pg3BTE" target="_blank" rel="noopener noreferrer">2016</a>
+          <a class="btn btn-ghost" href="https://youtu.be/sWwPy0ppTkQ?si=-ygI1E_5l6HQo0QS" target="_blank" rel="noopener noreferrer">2017</a>
+          <a class="btn btn-ghost" href="https://youtu.be/-Gj4oyJDxHE?si=8sJM5bU_L6j7UYQX" target="_blank" rel="noopener noreferrer">2018</a>
+        </div>
       </div>
     </div>
 
     <!-- RIGHT: Fantastic Four -->
-    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-      <img src="Final Poster for web.jpg" alt="Fantastic Four Challenge" style="width: 100%; max-width: 360px; height: auto; border-radius: 12px; border: 3px solid var(--gold); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); margin-bottom: 28px;">
-      <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; color: var(--navy-dark); margin-bottom: 16px;">Fantastic Four</h3>
-      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; max-width: 320px;">The natural evolution of Phoenix Cup legacy. Permanent, recurring team event bringing together generations, ages, and genders. Weightlifting celebrated as shared team achievement at the highest competitive level.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 0;">
-        <a class="btn" href="https://youtu.be/CwIQvoUnOh0?si=bQPoTH4mK877dM4Q" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 0.85rem;">Adults</a>
-        <a class="btn btn-ghost" href="https://youtu.be/95E6NIVwAI8?si=f0HWKx5aZNqWLwWG" target="_blank" rel="noopener noreferrer" style="padding: 10px 18px; font-size: 0.85rem;">Kids</a>
+    <div class="community-card">
+      <img src="Final Poster for web.jpg" alt="Fantastic 4 Challenge banner, Ealing Weightlifting Club">
+      <div>
+        <h3>Fantastic Four</h3>
+        <p><strong>The next chapter.</strong> A permanent, recurring team event &mdash; the natural evolution of four editions of the Phoenix Cup.</p>
+        <p><strong>One team, four generations.</strong> Different ages, genders and strengths lifting together as a single team, not as individuals.</p>
+        <p><strong>Beyond the solo sport.</strong> Weightlifting built, organised and celebrated as a shared achievement at the highest competitive level.</p>
+        <div class="community-links">
+          <a class="btn" href="https://youtu.be/CwIQvoUnOh0?si=bQPoTH4mK877dM4Q" target="_blank" rel="noopener noreferrer">Watch &mdash; Adults</a>
+          <a class="btn btn-ghost" href="https://youtu.be/95E6NIVwAI8?si=f0HWKx5aZNqWLwWG" target="_blank" rel="noopener noreferrer">Watch &mdash; Kids</a>
+        </div>
       </div>
     </div>
   </div>
