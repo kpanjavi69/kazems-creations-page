@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KAZ Ecosystem &mdash; Elite Weightlifting Software, Hardware &amp; Books</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#111d28">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KAZ Ecosystem">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1379,6 +1387,252 @@
     white-space: nowrap;
   }
 
+  /* Research & writing: collapsed accordion so a lot of material costs
+     almost no page height until someone asks for it. */
+  .research-band {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 30px 60px;
+  }
+
+  .research-inner .section-label {
+    display: inline-flex;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .research-inner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .research-lede {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 26px;
+  }
+
+  .research-item {
+    border: 1px solid rgba(179, 143, 79, 0.35);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    background: var(--panel-bg);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .research-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 26px rgba(17, 29, 40, 0.1);
+  }
+
+  .research-item summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .research-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .research-tag {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  .tag-soon {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+  }
+
+  .tag-article {
+    background: var(--navy-dark);
+    color: var(--gold-light);
+  }
+
+  .tag-research {
+    background: transparent;
+    color: var(--navy-dark);
+    border: 1px solid rgba(17, 29, 40, 0.35);
+  }
+
+  .research-title {
+    flex: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.35;
+  }
+
+  .research-plus {
+    flex-shrink: 0;
+    position: relative;
+    width: 18px;
+    height: 18px;
+  }
+
+  .research-plus::before,
+  .research-plus::after {
+    content: "";
+    position: absolute;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .research-plus::before {
+    top: 8px;
+    left: 0;
+    width: 18px;
+    height: 2px;
+  }
+
+  .research-plus::after {
+    top: 0;
+    left: 8px;
+    width: 2px;
+    height: 18px;
+  }
+
+  .research-item[open] .research-plus::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .research-body {
+    padding: 4px 20px 22px;
+    border-top: 1px solid rgba(179, 143, 79, 0.2);
+    margin-top: 2px;
+  }
+
+  .research-body p {
+    color: var(--text-muted);
+    font-size: 0.97rem;
+    line-height: 1.7;
+    margin: 16px 0 0;
+  }
+
+  .research-body p strong {
+    color: var(--text-dark);
+  }
+
+  .research-note {
+    font-style: italic;
+    font-size: 0.88rem !important;
+  }
+
+  .research-body .modal-cta {
+    margin-top: 20px;
+  }
+
+  /* Category history table */
+  .table-scroll {
+    overflow-x: auto;
+    margin: 22px 0 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(179, 143, 79, 0.3);
+  }
+
+  .cat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    min-width: 620px;
+  }
+
+  .cat-table th {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    color: #fff;
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+
+  .cat-table td {
+    padding: 12px 14px;
+    border-top: 1px solid rgba(179, 143, 79, 0.22);
+    color: var(--text-muted);
+    vertical-align: top;
+  }
+
+  .cat-table tbody tr:nth-child(even) {
+    background: rgba(179, 143, 79, 0.06);
+  }
+
+  .cat-table td strong {
+    color: var(--navy-dark);
+  }
+
+  .cat-table td em {
+    display: block;
+    font-style: normal;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+
+  .cat-table .era-name {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .cat-table .row-highlight {
+    background: rgba(179, 143, 79, 0.16) !important;
+  }
+
+  @media (max-width: 768px) {
+    .research-band {
+      padding: 44px 22px 48px;
+    }
+
+    .research-inner h2 {
+      font-size: 1.7rem;
+    }
+
+    .research-item summary {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .research-title {
+      flex: 1 1 100%;
+      font-size: 0.98rem;
+      order: 3;
+    }
+
+    .research-plus {
+      margin-left: auto;
+    }
+
+    .research-body {
+      padding: 4px 16px 20px;
+    }
+  }
+
   /* Small product wordmark above a section heading. Deliberately kept well
      under the hero crest so a sub-brand never outranks the main KAZ logo.
      The artwork ships on a black plate, and this sits on a light section,
@@ -1776,6 +2030,7 @@
       <li><a href="#kaz-path">Kaz Path</a></li>
       <li><a href="#books">Books</a></li>
       <li><a href="#bar-drill">Bar Drill</a></li>
+      <li><a href="#research">Writing</a></li>
       <li><a href="#fantastic-four">Phoenix</a></li>
       <li><a href="about-kaz.html">About Kaz</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -2411,6 +2666,94 @@
     </div>
   </div>
 </div>
+<div class="divider"></div>
+
+<!-- Research, Writing & Coming Soon -->
+<div class="research-band" id="research">
+  <div class="research-inner">
+    <span class="section-label">Research &amp; Writing</span>
+    <h2>From the Desk</h2>
+    <p class="research-lede">Work in progress, published articles, and what is coming next. Open any panel to read more.</p>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-research">Research</span>
+        <span class="research-title">100 Years of Olympic History &mdash; The Evolution of IWF Bodyweight Categories</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p>A book in progress tracing every senior bodyweight category the sport has used from <strong>1920 to 2028</strong> &mdash; men, women, youth and Olympic classes &mdash; and what each reshuffle did to the athletes living through it.</p>
+        <p><strong>Looking ahead to Los Angeles 2028.</strong> The IOC has approved an increase to six Olympic categories per gender for LA 2028, up from five in Paris. The IWF has also introduced a new eight-category World standard starting in 2026.</p>
+
+        <div class="table-scroll">
+          <table class="cat-table">
+            <thead>
+              <tr><th>Era</th><th>Men &mdash; Senior (kg)</th><th>Women &mdash; Senior (kg)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>1920&ndash;1972</strong><br><span class="era-name">Early Era</span></td><td><em>5 categories</em><br>60, 67.5, 75, 82.5, +82.5</td><td><em>Not yet official</em></td></tr>
+              <tr><td><strong>1972&ndash;1992</strong><br><span class="era-name">Classic Era</span></td><td><em>10 categories</em><br>52, 56, 60, 67.5, 75, 82.5, 90, 100, 110, +110</td><td><em>9 categories (est. 1987)</em><br>44, 48, 52, 56, 60, 67.5, 75, 82.5, +82.5</td></tr>
+              <tr><td><strong>1993&ndash;1997</strong><br><span class="era-name">First Reset</span></td><td><em>10 categories</em><br>54, 59, 64, 70, 76, 83, 91, 99, 108, +108</td><td><em>9 categories</em><br>46, 50, 54, 59, 64, 70, 76, 83, +83</td></tr>
+              <tr><td><strong>1998&ndash;2018</strong><br><span class="era-name">Sydney&ndash;Rio</span></td><td><em>8 categories</em><br>56, 62, 69, 77, 85, 94, 105, +105</td><td><em>7 categories</em><br>48, 53, 58, 63, 69, 75, +75</td></tr>
+              <tr><td><strong>2018&ndash;2024</strong><br><span class="era-name">Tokyo&ndash;Paris</span></td><td><em>10 categories</em><br>55, 61, 67, 73, 81, 89, 96, 102, 109, +109</td><td><em>10 categories</em><br>45, 49, 55, 59, 64, 71, 76, 81, 87, +87</td></tr>
+              <tr><td><strong>From Jun 2025</strong><br><span class="era-name">Interim</span></td><td><em>8 categories</em><br>60, 65, 71, 79, 88, 94, 110, +110</td><td><em>8 categories</em><br>48, 53, 58, 63, 69, 77, 86, +86</td></tr>
+              <tr><td><strong>From Aug 2026</strong><br><span class="era-name">World Standard</span></td><td><em>8 categories</em><br>60, 65, 70, 75, 85, 95, 110, +110</td><td><em>8 categories</em><br>49, 53, 57, 61, 69, 77, 86, +86</td></tr>
+              <tr class="row-highlight"><td><strong>LA 2028</strong><br><span class="era-name">Olympic</span></td><td><em>6 categories</em><br>65, 75, 85, 95, 110, +110</td><td><em>6 categories</em><br>53, 61, 69, 77, 86, +86</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="research-note">Chapter extract from the upcoming book, by Kazem Panjavi.</p>
+      </div>
+    </details>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-article">Article</span>
+        <span class="research-title">From Barcelona &rsquo;92 to LA 2028: My Weightlifting Category Journey</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p>Weight categories are not just labels on paper. They shape everything &mdash; how an athlete eats, recovers, sleeps, trains, and feels on the platform. This is a first-hand account of what happens when a lifter is forced into the wrong class, and what becomes possible when the right one fits.</p>
+        <p>At the <strong>1992 Barcelona Olympic Games</strong> Kazem competed at 67.5 kg &mdash; not his natural bodyweight. Making weight meant cutting to around 66.7 kg, which left him drained and unstable, and contributed to a serious shoulder injury. When the categories were reorganised and his class moved to <strong>70 kg</strong>, the sport felt different: a 2.5 kg adjustment instead of a constant fight. It led to his best lifts &mdash; <strong>140.5 kg snatch</strong> and <strong>175 kg clean &amp; jerk</strong>, recognised as a new Iranian record.</p>
+        <p>The story continues through his move to the UK in 1995, Best Lifter of the Year at the 1999 London Open, competing at 77 kg at the age of 37, and becoming <strong>British Champion in 2002</strong> &mdash; clean &amp; jerking 152.5 kg on one leg after injuring his knee earlier in the competition.</p>
+        <div class="modal-cta">
+          <a class="btn-primary" href="https://www.linkedin.com/posts/kazem-panjavi-96a9a230_from-barcelona-92-to-la-2028-my-weightlifting-ugcPost-7406054376638672896-B_x7/" target="_blank" rel="noopener noreferrer">Read the Full Story on LinkedIn</a>
+          <a class="btn-secondary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">More About Kazem</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-article">Coaching</span>
+        <span class="research-title">Join Kazem Panjavi&rsquo;s Elite Training Programme</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p>Experience the transformative power of Kazem Panjavi&rsquo;s personalised training approach. Kazem&rsquo;s expertise and guidance will propel you towards success, whether you aspire to compete at the highest level or simply want to elevate your fitness journey.</p>
+        <p>Don&rsquo;t miss the opportunity to train with a true champion and unlock your full potential. Enrol now and embark on a fitness journey like no other.</p>
+        <div class="modal-cta">
+          <a class="btn-primary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Enrol Now</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-soon">Coming Soon</span>
+        <span class="research-title">KAZ Easy Coach</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p><strong>Too many lifters are being taught by people who have never done it.</strong> Some have no coach at all. Others have a coach who qualified entirely online &mdash; a weekend of videos and a certificate &mdash; who has never stood in a warm-up room, never called an attempt, and has never coached a lifter through a real competition.</p>
+        <p>A certificate is not experience. If you have only ever seen the sport through a screen, you cannot spot the fault standing in front of you, you cannot fix it in the moment, and you cannot tell an athlete what competition day is actually going to do to them. Lifters pay for that gap &mdash; in wasted years, bad habits that take longer to unlearn than to learn, and injuries that were entirely avoidable.</p>
+        <p><strong>KAZ Easy Coach</strong> is being written to close it: a clear, step-by-step guide to teaching the lifts properly, from the first position through to the full movement. For the lifter with nobody to ask, it is a correct path to follow. For the newer coach, it is a structure built on 35 years, 1,300 athletes and an Olympic platform &mdash; not on theory.</p>
+        <p class="research-note">In development. Details to follow.</p>
+      </div>
+    </details>
+  </div>
+</div>
+
 <div class="divider"></div>
 
 <!-- 07 Phoenix Cup Legacy & Fantastic Four -->
