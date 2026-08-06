@@ -1,0 +1,2912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAZ Ecosystem &mdash; Elite Weightlifting Software, Hardware &amp; Books</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#111d28">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KAZ Ecosystem">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-dark: #111d28;
+    --navy-light: #1c3144;
+    --gold: #b38f4f;
+    --gold-light: #d4b26a;
+    --body-bg: #f7f7f5;
+    --panel-bg: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-muted: #5a6570;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-dark);
+    line-height: 1.65;
+  }
+
+  h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Sticky nav */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(17, 29, 40, 0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(179, 143, 79, 0.35);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .nav-logo {
+    color: #fff;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-logo span {
+    color: var(--gold-light);
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: #d7dee5;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: #ffffff;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  /* Header / Hero */
+  header {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(179, 143, 79, 0.16), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(179, 143, 79, 0.12), transparent 45%),
+      linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 64px 20px 48px;
+    position: relative;
+    border-bottom: 4px solid var(--gold);
+    overflow: hidden;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    padding: 8px 18px;
+    border: 1px solid rgba(212, 178, 106, 0.5);
+    border-radius: 999px;
+  }
+
+  header h1 {
+    font-size: 3.6rem;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  header .subtitle {
+    margin-top: 16px;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  header .subtitle a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 3px;
+  }
+
+  header .subtitle a:hover {
+    color: var(--gold-light);
+  }
+
+  .credential-strip {
+    max-width: 780px;
+    margin: 36px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .credential-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: #e9edf1;
+    font-weight: 500;
+  }
+
+  .credential-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* Hero Videos */
+  .hero-content-row {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .hero-text {
+    flex: 1 1 320px;
+    order: 1;
+  }
+
+  .hero-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .hero-video-left {
+    order: 0;
+  }
+
+  .hero-video-right {
+    order: 2;
+  }
+
+  .hero-video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--gold);
+  }
+
+  .hero-video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .hero-video-title {
+    color: #ffffff;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    max-width: 220px;
+  }
+
+  /* IWF accreditation badges above each hero video. The two source cards
+     have different shapes, so a fixed box with object-fit: contain makes
+     them render identically — equal weight for equal credentials. */
+  .cred-badge {
+    width: 100%;
+    max-width: 220px;
+    height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+    background: #ffffff;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+    margin-bottom: 4px;
+  }
+
+  .cred-badge img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .hero-content-row {
+      flex-wrap: wrap;
+      row-gap: 20px;
+      column-gap: 14px;
+    }
+
+    .hero-text {
+      order: 0;
+      flex: 1 1 100%;
+    }
+
+    .hero-video-left,
+    .hero-video-right {
+      flex: 0 1 auto;
+      width: 44%;
+      max-width: 170px;
+    }
+
+    .hero-video-left {
+      order: 1;
+    }
+
+    .hero-video-right {
+      order: 2;
+    }
+
+    .hero-video-frame {
+      max-width: 100%;
+    }
+
+    .hero-video-title {
+      font-size: 0.72rem;
+      max-width: 100%;
+    }
+
+    .cred-badge {
+      max-width: 100%;
+      height: 84px;
+      padding: 7px;
+    }
+  }
+
+  /* Section wrapper */
+  .product-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 52px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .product-section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .product-section:nth-of-type(even) {
+    background-color: var(--panel-bg);
+  }
+
+  .product-section.reverse .image-block {
+    order: 2;
+  }
+
+  .product-section.reverse .text-block {
+    order: 1;
+  }
+
+  /* Image placeholder block */
+  .image-block {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-self: center;
+  }
+
+  .image-block::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    border: 2px solid rgba(179, 143, 79, 0.4);
+    border-radius: 10px;
+    z-index: 0;
+  }
+
+  .image-block img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 440px;
+    border-radius: 10px;
+    box-shadow: 0 18px 40px rgba(17, 29, 40, 0.22);
+    border: 2px solid var(--gold);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .image-block:hover img {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(17, 29, 40, 0.3);
+  }
+
+  /* App icon presentation (square logo, e.g. KAZAPP home-screen icon) */
+  .image-block.icon-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 380px;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    border-radius: 24px;
+  }
+
+  .image-block.icon-block::before {
+    inset: 14px -14px -14px 14px;
+    border-radius: 24px;
+  }
+
+  .image-block.icon-block img {
+    width: 260px;
+    height: 260px;
+    object-fit: contain;
+    border-radius: 44px;
+    box-shadow: 0 18px 40px rgba(17, 29, 40, 0.35);
+  }
+
+  /* Text block */
+  .text-block .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .text-block .section-label .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .text-block h2 {
+    font-size: 2.1rem;
+    color: var(--navy-dark);
+    margin-bottom: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .text-block ul {
+    list-style: none;
+    margin-bottom: 26px;
+  }
+
+  .text-block ul li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+  }
+
+  .text-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--gold);
+    border-radius: 50%;
+  }
+
+  .text-block ul li strong {
+    color: var(--text-dark);
+  }
+
+  .link-row {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--navy-dark);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    border: 2px solid var(--gold);
+  }
+
+  .btn:hover {
+    background-color: var(--gold);
+    color: var(--navy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(179, 143, 79, 0.35);
+  }
+
+  .btn .arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .btn:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--navy-dark);
+    border: 2px solid rgba(17, 29, 40, 0.25);
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--navy-dark);
+    color: #fff;
+    border-color: var(--navy-dark);
+    box-shadow: 0 10px 22px rgba(17, 29, 40, 0.25);
+  }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(9, 15, 21, 0.72);
+    padding: 30px 20px;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .modal-overlay.is-open {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--panel-bg);
+    border-radius: 14px;
+    max-width: 680px;
+    width: 100%;
+    margin: 40px auto;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+    border-top: 5px solid var(--gold);
+    overflow: hidden;
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    color: #fff;
+    padding: 30px 36px;
+    position: relative;
+  }
+
+  .modal-header .eyebrow {
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .modal-header h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .modal-close:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy-dark);
+  }
+
+  .modal-body {
+    padding: 32px 36px 36px;
+    color: var(--text-muted);
+  }
+
+  /* Wide variant for the live scoreboard embed - full-bleed iframe, no text padding */
+  .modal.modal-wide {
+    max-width: 1200px;
+  }
+
+  .modal-body.modal-body-flush {
+    padding: 0;
+  }
+
+  .modal-body.modal-body-flush iframe {
+    display: block;
+    width: 100%;
+    height: 80vh;
+    border: none;
+  }
+
+  .modal-body p {
+    margin-bottom: 18px;
+    font-size: 1rem;
+  }
+
+  .modal-body strong {
+    color: var(--text-dark);
+  }
+
+  .modal-body h4 {
+    color: var(--navy-dark);
+    font-size: 1.05rem;
+    margin: 26px 0 14px;
+  }
+
+  .modal-body ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .modal-body ul li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 12px;
+  }
+
+  .modal-body ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    background-color: var(--gold);
+    border-radius: 50%;
+  }
+
+  .modal-checklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .modal-checklist span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(179, 143, 79, 0.1);
+    color: var(--navy-dark);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* Mini gallery (used on main page and inside modal) */
+  .mini-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+    align-items: start;
+    justify-items: center;
+  }
+
+  .mini-gallery figure {
+    margin: 0;
+  }
+
+  .mini-gallery img,
+  .mini-gallery video {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 260px;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(17, 29, 40, 0.18);
+  }
+
+  .mini-gallery figcaption {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* Light legend */
+  .light-legend {
+    list-style: none;
+    margin: 16px 0 22px;
+  }
+
+  .light-legend li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+  }
+
+  .light-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .try-steps {
+    margin: 0 0 20px 20px;
+    color: var(--text-muted);
+  }
+
+  .try-steps li {
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  .try-steps li::marker {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .modal-tagline {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .modal-tagline span {
+    color: var(--gold-light);
+  }
+
+  @media (max-width: 480px) {
+    .mini-gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Divider */
+  .divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  /* Footer */
+  footer {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(179, 143, 79, 0.12), transparent 55%),
+      linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px 40px;
+    margin-top: 20px;
+    border-top: 4px solid var(--gold);
+  }
+
+  footer .footer-brand {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #ffffff;
+  }
+
+  footer p {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    color: #d7dee5;
+  }
+
+  footer a {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  footer .back-to-top {
+    display: inline-block;
+    margin-top: 26px;
+    color: #9aa7b1;
+    font-size: 0.8rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 18px;
+  }
+
+  footer .back-to-top:hover {
+    color: var(--gold-light);
+  }
+
+  @media (max-width: 800px) {
+    .nav-links {
+      gap: 16px;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+    }
+
+    .product-section {
+      grid-template-columns: 1fr;
+      padding: 60px 24px;
+      gap: 36px;
+    }
+
+    .product-section.reverse .image-block,
+    .product-section.reverse .text-block {
+      order: initial;
+    }
+
+    header {
+      padding: 90px 20px 70px;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+    }
+
+    .image-block::before {
+      inset: 10px -10px -10px 10px;
+    }
+
+    .image-block img {
+      height: 260px;
+    }
+
+    .image-block.icon-block {
+      height: 260px;
+    }
+
+    .image-block.icon-block img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nav-inner {
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 20px;
+    }
+
+    .nav-links {
+      justify-content: center;
+    }
+  }
+  .scoreboard-logo {
+    max-width: 160px;
+    display: block;
+    margin: 0 auto 16px;
+  }
+
+  .scoreboard-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: -6px;
+    margin-bottom: 14px;
+  }
+
+  /* KAZAPP Ad Banner */
+  .kazapp-banner {
+    background:
+      radial-gradient(circle at 10% 15%, rgba(179, 143, 79, 0.14), transparent 45%),
+      radial-gradient(circle at 90% 85%, rgba(179, 143, 79, 0.1), transparent 45%),
+      linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    padding: 90px 30px;
+    border-top: 1px solid rgba(179, 143, 79, 0.3);
+    border-bottom: 1px solid rgba(179, 143, 79, 0.3);
+  }
+
+  .kazapp-banner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .kazapp-banner .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  .kazapp-banner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .kazapp-banner p {
+    color: #c5cdd4;
+    font-size: 1.05rem;
+    margin-bottom: 26px;
+    max-width: 520px;
+  }
+
+  .kazapp-banner ul {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .kazapp-banner ul li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 16px;
+    color: #d7dee5;
+    font-size: 1rem;
+    max-width: 520px;
+  }
+
+  .kazapp-banner ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+  }
+
+  .kazapp-banner ul li strong {
+    color: #ffffff;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+    border: 2px solid transparent;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(179, 143, 79, 0.35);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .kazapp-banner-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .kazapp-banner-image::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(179, 143, 79, 0.18), transparent 70%);
+    z-index: 0;
+  }
+
+  .kazapp-banner-image img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 28px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (max-width: 800px) {
+    .kazapp-banner {
+      padding: 60px 24px;
+    }
+
+    .kazapp-banner-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .kazapp-banner p,
+    .kazapp-banner ul li {
+      max-width: none;
+    }
+
+    .kazapp-banner ul {
+      text-align: left;
+    }
+
+    .cta-buttons {
+      justify-content: center;
+    }
+
+    .kazapp-banner-image {
+      order: -1;
+    }
+  }
+
+  .note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* Community section: Phoenix Cup + Fantastic Four (full width, side by side) */
+  .community-section {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 30px 70px;
+    background-color: var(--panel-bg);
+  }
+
+  .community-section .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .community-section .section-label .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .community-section h2 {
+    font-size: 2.1rem;
+    color: var(--navy-dark);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 34px;
+  }
+
+  .community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .community-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--body-bg);
+    border: 1px solid rgba(179, 143, 79, 0.35);
+    border-radius: 12px;
+    padding: 22px;
+  }
+
+  .community-card > img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 10px 24px rgba(17, 29, 40, 0.2);
+  }
+
+  .community-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+  }
+
+  .community-card p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .community-card p strong {
+    color: var(--text-dark);
+  }
+
+  .community-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .community-links .btn {
+    padding: 8px 13px;
+    font-size: 0.82rem;
+    letter-spacing: 0.2px;
+  }
+
+  @media (max-width: 960px) {
+    .community-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .community-card {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .community-card > img {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner {
+      padding: 12px 20px;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      gap: 16px;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+    }
+
+    header {
+      padding: 40px 20px 32px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+    }
+
+    .credential-strip {
+      margin: 24px auto 0;
+      gap: 10px;
+    }
+
+    .credential-pill {
+      padding: 7px 14px;
+      font-size: 0.78rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-inner {
+      padding: 10px 16px;
+    }
+
+    .nav-logo {
+      font-size: 0.8rem;
+    }
+
+    .nav-links {
+      gap: 12px;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      letter-spacing: 0;
+    }
+
+    header {
+      padding: 32px 16px 24px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    .credential-strip {
+      margin: 18px auto 0;
+    }
+
+    .credential-pill {
+      padding: 6px 12px;
+      font-size: 0.72rem;
+      gap: 6px;
+    }
+
+    .credential-pill .dot {
+      width: 5px;
+      height: 5px;
+    }
+  }
+
+  /* ---- v2 additions (same tokens, same language) ---- */
+
+
+  /* KAZ crest in the hero */
+  .hero-logo {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto 14px;
+    mix-blend-mode: screen;
+  }
+
+  .trademark {
+    font-size: 0.42em;
+    vertical-align: super;
+    letter-spacing: 0;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  .hero-cta {
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .hero-cta .btn-primary {
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* Centred intro band above a group of sections */
+  .section-intro {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 58px 30px 4px;
+    text-align: center;
+  }
+
+  .section-intro .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section-intro .section-label .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .section-intro h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .section-intro p {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Pricing — lives inside modals only, never on the main page */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 18px 0 24px;
+  }
+
+  .price-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 16px;
+    background: rgba(179, 143, 79, 0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .price-item .price-name {
+    color: var(--navy-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .price-item .price-tag {
+    color: var(--gold);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  /* Research & writing: collapsed accordion so a lot of material costs
+     almost no page height until someone asks for it. */
+  .research-band {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 30px 60px;
+  }
+
+  .research-inner .section-label {
+    display: inline-flex;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .research-inner h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .research-lede {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 26px;
+  }
+
+  .research-item {
+    border: 1px solid rgba(179, 143, 79, 0.35);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    background: var(--panel-bg);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .research-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 26px rgba(17, 29, 40, 0.1);
+  }
+
+  .research-item summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .research-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .research-tag {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 999px;
+  }
+
+  .tag-soon {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy-dark);
+  }
+
+  .tag-article {
+    background: var(--navy-dark);
+    color: var(--gold-light);
+  }
+
+  .tag-research {
+    background: transparent;
+    color: var(--navy-dark);
+    border: 1px solid rgba(17, 29, 40, 0.35);
+  }
+
+  .research-title {
+    flex: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.35;
+  }
+
+  .research-plus {
+    flex-shrink: 0;
+    position: relative;
+    width: 18px;
+    height: 18px;
+  }
+
+  .research-plus::before,
+  .research-plus::after {
+    content: "";
+    position: absolute;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .research-plus::before {
+    top: 8px;
+    left: 0;
+    width: 18px;
+    height: 2px;
+  }
+
+  .research-plus::after {
+    top: 0;
+    left: 8px;
+    width: 2px;
+    height: 18px;
+  }
+
+  .research-item[open] .research-plus::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .research-body {
+    padding: 4px 20px 22px;
+    border-top: 1px solid rgba(179, 143, 79, 0.2);
+    margin-top: 2px;
+  }
+
+  .research-body p {
+    color: var(--text-muted);
+    font-size: 0.97rem;
+    line-height: 1.7;
+    margin: 16px 0 0;
+  }
+
+  .research-body p strong {
+    color: var(--text-dark);
+  }
+
+  .research-note {
+    font-style: italic;
+    font-size: 0.88rem !important;
+  }
+
+  .research-body .modal-cta {
+    margin-top: 20px;
+  }
+
+  /* Category history table */
+  .table-scroll {
+    overflow-x: auto;
+    margin: 22px 0 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(179, 143, 79, 0.3);
+  }
+
+  .cat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    min-width: 620px;
+  }
+
+  .cat-table th {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-light) 100%);
+    color: #fff;
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+
+  .cat-table td {
+    padding: 12px 14px;
+    border-top: 1px solid rgba(179, 143, 79, 0.22);
+    color: var(--text-muted);
+    vertical-align: top;
+  }
+
+  .cat-table tbody tr:nth-child(even) {
+    background: rgba(179, 143, 79, 0.06);
+  }
+
+  .cat-table td strong {
+    color: var(--navy-dark);
+  }
+
+  .cat-table td em {
+    display: block;
+    font-style: normal;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+
+  .cat-table .era-name {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .cat-table .row-highlight {
+    background: rgba(179, 143, 79, 0.16) !important;
+  }
+
+  @media (max-width: 768px) {
+    .research-band {
+      padding: 44px 22px 48px;
+    }
+
+    .research-inner h2 {
+      font-size: 1.7rem;
+    }
+
+    .research-item summary {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px 16px;
+    }
+
+    .research-title {
+      flex: 1 1 100%;
+      font-size: 0.98rem;
+      order: 3;
+    }
+
+    .research-plus {
+      margin-left: auto;
+    }
+
+    .research-body {
+      padding: 4px 16px 20px;
+    }
+  }
+
+  /* Small product wordmark above a section heading. Deliberately kept well
+     under the hero crest so a sub-brand never outranks the main KAZ logo.
+     The artwork ships on a black plate, and this sits on a light section,
+     so it is framed in gold to read as an intentional badge. */
+  .product-wordmark {
+    display: block;
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    margin: 0 0 18px;
+    border-radius: 8px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 8px 20px rgba(17, 29, 40, 0.18);
+  }
+
+  /* Video used as a section's main visual — framed like .image-block
+     so an embed and a photograph sit at the same level in the design. */
+  .video-figure {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-self: center;
+  }
+
+  .video-figure::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    border: 2px solid rgba(179, 143, 79, 0.4);
+    border-radius: 10px;
+    z-index: 0;
+  }
+
+  .video-frame {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    box-shadow: 0 18px 40px rgba(17, 29, 40, 0.22);
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Full-width product section: text, then a banner image across the page,
+     then the supporting gallery, then the buttons on one line. */
+  .product-section.product-full {
+    display: block;
+  }
+
+  /* Wider than the old two-column slot, but capped so it reads as a
+     banner rather than taking over the section. */
+  .full-figure {
+    position: relative;
+    max-width: 840px;
+    margin: 34px auto 0;
+  }
+
+  .full-figure::before {
+    content: "";
+    position: absolute;
+    inset: 14px -14px -14px 14px;
+    border: 2px solid rgba(179, 143, 79, 0.4);
+    border-radius: 10px;
+    z-index: 0;
+  }
+
+  .full-figure img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 18px 40px rgba(17, 29, 40, 0.22);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .full-figure:hover img {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(17, 29, 40, 0.3);
+  }
+
+  /* The gallery now has the full page width, so let it breathe. */
+  .product-full .mini-gallery {
+    gap: 30px;
+    margin: 36px auto 0;
+    max-width: 840px;
+    align-items: center;
+  }
+
+  .product-full .mini-gallery img,
+  .product-full .mini-gallery video {
+    max-height: 360px;
+  }
+
+  .product-full .mini-gallery figcaption {
+    font-size: 0.9rem;
+    margin-top: 12px;
+  }
+
+  /* Keep the three actions on a single row. */
+  .link-row-inline {
+    justify-content: center;
+    margin-top: 34px;
+  }
+
+  /* Book covers carry the section — give them real presence.
+     Scoped to the three book sections so product shots are unaffected. */
+  #book-1 .image-block img,
+  #book-2 .image-block img,
+  #book-3 .image-block img {
+    max-height: 580px;
+  }
+
+  /* Programme library: level, price and what the level actually is */
+  .subscription-line {
+    margin: 18px 0 26px;
+  }
+
+  .programme-list {
+    margin: 0 0 22px;
+  }
+
+  .programme-tier {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 26px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(179, 143, 79, 0.3);
+  }
+
+  .programme-tier:first-child {
+    margin-top: 0;
+  }
+
+  .programme {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: rgba(179, 143, 79, 0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .programme-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+
+  .programme-name {
+    color: var(--navy-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .programme p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+
+  .price-note {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 22px;
+  }
+
+  /* Modal call-to-action row */
+  .modal-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  /* .btn-secondary is authored for the dark banner; on the light modal
+     panel it needs the navy treatment or it disappears into the card. */
+  .modal-cta .btn-secondary {
+    color: var(--navy-dark);
+    border-color: rgba(17, 29, 40, 0.25);
+  }
+
+  .modal-cta .btn-secondary:hover {
+    background-color: var(--navy-dark);
+    color: #ffffff;
+    border-color: var(--navy-dark);
+  }
+
+  .modal-cta .btn-primary {
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* Why-it-matters lead-in for the community section */
+  .community-intro {
+    max-width: 900px;
+    margin: -12px 0 32px;
+  }
+
+  .community-intro p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .community-intro p strong {
+    color: var(--navy-dark);
+  }
+
+  /* IP / trade mark line in the footer */
+  footer .ip-notice {
+    max-width: 780px;
+    margin: 26px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #8d9aa5;
+  }
+
+  /* ---- v2 mobile refinements ---- */
+  @media (max-width: 900px) {
+    .section-intro {
+      padding: 46px 24px 4px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Seven links wrap onto two rows and eat the top of the screen.
+       One swipeable row keeps the header short without dropping a link. */
+    .nav-links {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      width: 100%;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      white-space: nowrap;
+    }
+
+    .hero-logo {
+      max-width: 150px;
+      margin-bottom: 16px;
+    }
+
+    .product-section {
+      padding: 44px 22px;
+      gap: 30px;
+    }
+
+    .section-intro {
+      padding: 40px 22px 0;
+    }
+
+    .section-intro h2 {
+      font-size: 1.7rem;
+    }
+
+    .section-intro p {
+      font-size: 0.95rem;
+    }
+
+    .text-block h2 {
+      font-size: 1.7rem;
+    }
+
+    .product-wordmark {
+      max-width: 150px;
+      margin-bottom: 14px;
+    }
+
+    .text-block ul li {
+      font-size: 0.96rem;
+      margin-bottom: 13px;
+    }
+
+    .link-row {
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 11px 20px;
+      font-size: 0.88rem;
+    }
+
+    .community-section {
+      padding: 46px 22px 54px;
+    }
+
+    .community-section h2 {
+      font-size: 1.7rem;
+    }
+
+    .modal-header {
+      padding: 24px 22px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.3rem;
+    }
+
+    .modal-body {
+      padding: 24px 22px 28px;
+    }
+
+    .modal-body.modal-body-flush iframe {
+      height: 70vh;
+    }
+  }
+
+  @media (max-width: 560px) {
+
+    .link-row {
+      gap: 10px;
+    }
+
+    .link-row .btn {
+      flex: 1 1 100%;
+      justify-content: center;
+    }
+
+    .link-row .note {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+
+    .price-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .modal-cta .btn-primary,
+    .modal-cta .btn-secondary {
+      flex: 1 1 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-logo {
+      max-width: 124px;
+    }
+
+    .product-section {
+      padding: 36px 18px;
+      gap: 26px;
+    }
+
+    .text-block h2 {
+      font-size: 1.45rem;
+    }
+
+    .image-block img {
+      max-height: 230px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">KAZ<span class="trademark">&trade;</span> <span>Ecosystem</span></a>
+    <ul class="nav-links">
+      <li><a href="#scoreboard">Competition IQ</a></li>
+      <li><a href="#kazapp">KAZAPP</a></li>
+      <li><a href="#kaz-path">Kaz Path</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#bar-drill">Bar Drill</a></li>
+      <li><a href="#research">Writing</a></li>
+      <li><a href="#fantastic-four">Phoenix</a></li>
+      <li><a href="about-kaz.html">About Kaz</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="hero-content-row">
+    <div class="hero-video hero-video-left">
+      <div class="cred-badge">
+        <img src="iwfofficialcard.jpeg" alt="IWF International Technical Official Card">
+      </div>
+      <div class="hero-video-frame">
+        <iframe src="https://www.youtube.com/embed/BdYTkrN9d1w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="hero-video-title">From book to app: How &lsquo;Six Attempts, Six White Lights&rsquo; became KAZ Competition IQ</p>
+    </div>
+
+    <div class="hero-text">
+      <img class="hero-logo" src="kaz-logo.png" alt="KAZ — The Elite Weightlifting Ecosystem">
+      <span class="hero-eyebrow">Olympian &middot; Elite Coach &middot; Author</span>
+      <h1>KAZ<span class="trademark">&trade;</span> Ecosystem</h1>
+      <p class="subtitle">Elite Weightlifting Systems by <a href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Kazem Panjavi</a></p>
+      <div class="credential-strip">
+        <a class="credential-pill" href="https://www.olympics.com/en/video/meet-kazem-panjavi?uxreference=playlist" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span class="dot"></span>Barcelona &lsquo;92 Olympian</a>
+        <a class="credential-pill" href="https://youtu.be/z-06Edw8N20?si=eX2TVQIYgIQAlVIa" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span class="dot"></span>7&times; Gold Medalist</a>
+        <a class="credential-pill" href="https://youtu.be/rOSlzfPc_24?si=FTMAbyFCTCvVxeuS" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span class="dot"></span>National Record Holder</a>
+        <a class="credential-pill" href="https://youtu.be/nJQopdlDCHo?si=QbEoL4YNzWt4rGvP" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span class="dot"></span>GB National Team &amp; Odisha Chief Coach</a>
+      </div>
+      <div class="cta-buttons hero-cta">
+        <button type="button" class="btn-primary" data-modal-open="scoreboard-live-modal">Try Competition IQ Live</button>
+        <a class="btn-secondary" href="#kazapp">Explore KAZAPP</a>
+      </div>
+    </div>
+
+    <div class="hero-video hero-video-right">
+      <div class="cred-badge">
+        <img src="iwfcoachlicence.jpeg" alt="IWF International Coach Licence — Kazem Panjavi, Great Britain">
+      </div>
+      <div class="hero-video-frame">
+        <iframe src="https://www.youtube.com/embed/NsBo_D-h8wY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="hero-video-title">From Female Olympic Weightlifters to KAZAPP: Experience Turned into Innovation</p>
+    </div>
+  </div>
+</header>
+
+<!-- 01 Kaz Competition IQ -->
+<section class="product-section" id="scoreboard">
+  <div class="image-block">
+    <img src="kaz-competition-iq-logo.png" alt="Kaz Competition IQ logo" class="scoreboard-logo">
+    <img src="Competition scoreboard software.png" alt="Olympic Weightlifting Scoreboard Software interface">
+  </div>
+  <div class="text-block">
+    <span class="section-label"><span class="num">01</span>Software</span>
+    <h2>Kaz Competition IQ</h2>
+    <p class="scoreboard-subtitle">Olympic Weightlifting Scoreboard Software</p>
+    <ul>
+      <li><strong>Virtual Competition Simulator:</strong> A powerful tool designed to help coaches and athletes simulate and practice real match scenarios right in their home club.</li>
+      <li><strong>Real-Time Tracking:</strong> Manages countdown clocks, lifting orders, and referee light displays exactly like an official international tournament.</li>
+      <li><strong>Sharper Coaching Decisions:</strong> Lets coaches rehearse attempt calls, warm-up timing, and weight selection under realistic pressure, so those calls become practiced skill instead of costly guesswork on competition day.</li>
+      <li><strong>Stress Management:</strong> Prepares lifters mentally for the pressure, clock constraints, and chaotic environment of a real weightlifting stage.</li>
+    </ul>
+    <div class="link-row">
+      <button type="button" class="btn" data-modal-open="scoreboard-live-modal">Try It Live <span class="arrow">&rarr;</span></button>
+      <button type="button" class="btn btn-ghost" data-modal-open="competition-iq-modal">More Information</button>
+      <a class="btn" href="https://www.youtube.com/shorts/S9oYtJk5GMo" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
+      <a class="btn btn-ghost" href="https://youtu.be/rkEMLdvHsEo?si=vAiAJcdiLOLR7aTa" target="_blank" rel="noopener noreferrer">Full Walkthrough <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" id="competition-iq-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="competition-iq-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">01 Software</span>
+      <h3 id="competition-iq-modal-title">Rehearse the Match Before You Ever Step On the Platform</h3>
+    </div>
+    <div class="modal-body">
+      <p>The lifting is only half the battle. Competitions are won and lost in the warm-up room and in the split-second decisions a coach makes under pressure&mdash;which weight to call, when to send the athlete out, how to react when a rival changes their attempt. Get those calls wrong and you can waste a lifter's entire preparation in a single afternoon. Too many coaches only learn these skills by making expensive mistakes on real competition day, at the cost of their athletes' results and confidence.</p>
+      <p><strong>Kaz Competition IQ</strong> removes the guesswork. It is a full virtual competition simulator that recreates a real international tournament inside your own club&mdash;the same countdown clocks, lifting order, and referee light system used on the official platform&mdash;so coaches and athletes can practice the tactical, high-pressure side of the sport as many times as they need, long before it counts.</p>
+
+      <h4>What the Software Lets You Do:</h4>
+      <ul>
+        <li><strong>Simulate Real Match Scenarios:</strong> Run complete competitions in your home club and practice against realistic lifting orders, so match day feels familiar instead of chaotic.</li>
+        <li><strong>Manage the Clock Like an Official:</strong> Countdown timers, lifting order, and referee light displays behave exactly like an international tournament, training you to work within the real time constraints.</li>
+        <li><strong>Sharpen Coaching Decisions:</strong> Rehearse attempt calls, warm-up room timing, and weight selection under pressure. Practice reading opponents' moves and tactics so your decisions become trained instinct&mdash;not competition-day guesswork.</li>
+        <li><strong>Build Mental Resilience:</strong> Prepare lifters for the nerves, the clock, and the chaotic stage environment, so pressure becomes something they have already rehearsed and mastered.</li>
+      </ul>
+
+      <h4>The Software That Completes the Book</h4>
+      <p>Kaz Competition IQ is the living, interactive version of the tactics taught in <strong>Six Attempts: Six White Lights</strong>. Everything the book explains about attempt strategy, warm-up timing, and referee standards is turned into a hands-on simulator you can drill again and again. Together, the book gives you the knowledge and the software gives you the reps&mdash;so no coach is ever calling weights or sending an athlete to the platform for the very first time when it actually matters.</p>
+
+      <div class="modal-checklist">
+        <span>&#10003; IWF-Style Virtual Scoreboard</span>
+        <span>&#10003; Real Countdown &amp; Referee Light System</span>
+        <span>&#10003; Tactical Decision Rehearsal</span>
+        <span>&#10003; Built Around Six Attempts: Six White Lights</span>
+      </div>
+
+      <h4>Access &amp; Pricing</h4>
+      <p>Practice sessions let a club rehearse a full competition in its own gym. Competition licences cover running a real event on the day.</p>
+      <div class="price-grid">
+        <div class="price-item"><span class="price-name">Practice &mdash; 1 hour</span><span class="price-tag">&pound;10</span></div>
+        <div class="price-item"><span class="price-name">Practice &mdash; 2 hours</span><span class="price-tag">&pound;18</span></div>
+        <div class="price-item"><span class="price-name">Practice &mdash; 3 hours</span><span class="price-tag">&pound;25</span></div>
+        <div class="price-item"><span class="price-name">Practice &mdash; full day</span><span class="price-tag">&pound;50</span></div>
+        <div class="price-item"><span class="price-name">Competition &mdash; kids</span><span class="price-tag">&pound;10</span></div>
+        <div class="price-item"><span class="price-name">Competition &mdash; adults &amp; kids</span><span class="price-tag">&pound;20</span></div>
+      </div>
+      <p class="price-note">All prices in GBP. Club and multi-event arrangements available on request.</p>
+
+      <div class="modal-cta">
+        <button type="button" class="btn-primary" data-modal-open="scoreboard-live-modal">Try It Live</button>
+        <a class="btn-secondary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Enquire About Access</a>
+      </div>
+
+      <p class="modal-tagline">Great coaches aren't born on competition day. <span>They're built through practice.</span></p>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="scoreboard-live-modal">
+  <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="scoreboard-live-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">Live Demo</span>
+      <h3 id="scoreboard-live-modal-title">Olympic Weightlifting Scoreboard — Try It Now</h3>
+    </div>
+    <div class="modal-body modal-body-flush">
+      <iframe src="https://kaziq.netlify.app/demo" title="Olympic Weightlifting Scoreboard live demo" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- 02 KAZAPP Mobile Application -->
+<section class="product-section reverse" id="kazapp">
+  <div class="image-block icon-block">
+    <img src="kazapp-icon.png.jpeg" alt="KAZAPP home screen app icon">
+  </div>
+  <div class="text-block">
+    <span class="section-label"><span class="num">02</span>Mobile App</span>
+    <h2>KAZAPP Mobile Application</h2>
+    <ul>
+      <li><strong>The Core Choice:</strong> Replaces rigid spreadsheet programs, encouraging lifters to listen to their body to avoid injury.</li>
+      <li><strong>Female Auto-Regulation:</strong> Synchronizes training logs with changing hormonal levels and cycle phases.</li>
+      <li><strong>Male Auto-Regulation:</strong> Adapts daily weight percentages using real-time feeling and recovery metrics.</li>
+      <li><strong>10 Built-In Programs:</strong> Steps systematically from complete beginner to international competition plans.</li>
+    </ul>
+    <div class="link-row">
+      <button type="button" class="btn btn-ghost" data-modal-open="kazapp-modal">More Information</button>
+      <a class="btn" href="https://www.youtube.com/shorts/Dy4KzBLZK-E" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" id="kazapp-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="kazapp-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">The KAZAPP Platform</span>
+      <h3 id="kazapp-modal-title">Fixed Percentages Don't Lift Weights. Biology Does.</h3>
+    </div>
+    <div class="modal-body">
+      <p>Olympic weightlifting demands absolute precision, yet most training platforms rely on static spreadsheet percentages that completely ignore human biology. Forcing a fatigued body to hit a blind, predetermined number does not build elite strength&mdash;it leads to frustrating plateaus, mental burnout, and severe joint injury.</p>
+      <p>KAZAPP shifts the paradigm by acting as an automated coaching intelligence. Instead of delivering passive data logging, the platform functions like an elite coach standing right on the training platform next to you, dynamically shifting your workout targets based on your actual physiological readiness today.</p>
+
+      <h4>Why KAZAPP Is Completely Different</h4>
+      <ul>
+        <li><strong>Dynamic Auto-Regulation (For Men):</strong> Built around a streamlined feeling and readiness tracking framework. By logging your physical state before you touch the barbell, the software automatically recalibrates your training weights for that specific session. If your recovery metrics are low, it safely scales the percentages down to protect your spine and nervous system while keeping your technical progress on track.</li>
+        <li><strong>Systematic Elite Roadmaps:</strong> You are not downloading a blank template. KAZAPP comes pre-loaded with 10 automated weightlifting tracks designed by an Olympian. These tracks transition an athlete systematically from foundational mechanics to international-level competition readiness.</li>
+      </ul>
+
+      <h4>The Brain Behind the App: Female Olympic Weightlifters</h4>
+      <p>The female auto-regulation engine is not built on generic fitness assumptions. It is powered entirely by the exhaustive, multi-year study of 100 elite athletes detailed in the book <em>Female Olympic Weightlifters</em>.</p>
+      <p>Female physiology requires a highly specialized approach to high-intensity training. KAZAPP uses this data to automatically synchronize training blocks with shifting hormonal fluctuations and cycle phases. The system maps out exactly when an athlete's body is primed for maximum power expression versus when the joints require strict protection, optimizing performance naturally while preventing injury.</p>
+
+      <div class="modal-checklist">
+        <span>&#10003; Science-Backed Hormonal Syncing</span>
+        <span>&#10003; Real-Time Daily Auto-Regulation</span>
+        <span>&#10003; Olympian-Engineered Programming</span>
+        <span>&#10003; Structural Injury Prevention</span>
+      </div>
+
+      <h4>Smart Excel Coaching Templates</h4>
+      <p><strong>Coach Edition.</strong> Editable spreadsheet versions of each programme, for coaches who want to adapt a plan before handing it to an athlete. These must be modified by the coach before use &mdash; they are an additional coaching tool, not a replacement for KAZAPP.</p>
+
+      <h4>From First Barbell to International Platform</h4>
+      <p>Ten complete Olympian-written programmes live inside KAZAPP, each one auto-regulated to the body that turns up on the day &mdash; not to a number typed into a spreadsheet months ago. One yearly subscription unlocks the app itself, and programmes are licensed individually, so you only pay for the level you are actually training at.</p>
+
+      <div class="price-item subscription-line">
+        <span class="price-name">Yearly subscription &mdash; unlocks the app</span>
+        <span class="price-tag">&pound;25</span>
+      </div>
+
+      <div class="programme-list">
+        <div class="programme-tier">Beginner &mdash; foundational mechanics through to first competition</div>
+
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L1 Beginner</span><span class="price-tag">&pound;15</span></div>
+          <p>First structured barbell work: positions, mechanics, and the technical habits everything later depends on.</p>
+        </div>
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L2 Beginner</span><span class="price-tag">&pound;20</span></div>
+          <p>Builds on L1 toward a first competition &mdash; full lifts under light, repeatable load.</p>
+        </div>
+
+        <div class="programme-tier">Club to National &mdash; structured volume for real competitive progression</div>
+
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L3 Club</span><span class="price-tag">&pound;25</span></div>
+          <p>For the lifter training consistently and entering club-level competition.</p>
+        </div>
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L4 Regional</span><span class="price-tag">&pound;30</span></div>
+          <p>Higher training density for lifters competing at regional standard.</p>
+        </div>
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L5 National</span><span class="price-tag">&pound;30</span></div>
+          <p>National-standard programming: heavier work and tighter technical margins.</p>
+        </div>
+
+        <div class="programme-tier">National A &amp; Advanced &mdash; the programming behind international lifters</div>
+
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L6 National A</span><span class="price-tag">&pound;40</span></div>
+          <p>The volume and intensity used to move a lifter into the national A class.</p>
+        </div>
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L7 Advanced</span><span class="price-tag">&pound;50</span></div>
+          <p>Advanced programming for lifters working toward international standard.</p>
+        </div>
+
+        <div class="programme-tier">Competition Plans &mdash; peaking, full preparation and wave loading</div>
+
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L8 Competition Plan</span><span class="price-tag">&pound;20</span></div>
+          <p>A focused peaking block leading into a single competition.</p>
+        </div>
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L9 Full Competition Plan</span><span class="price-tag">&pound;40</span></div>
+          <p>A complete preparation cycle, from base work through to competition day.</p>
+        </div>
+        <div class="programme">
+          <div class="programme-head"><span class="programme-name">L10 Wave Plan</span><span class="price-tag">&pound;20</span></div>
+          <p>Wave loading for lifters managing several competitions across a season.</p>
+        </div>
+      </div>
+      <p class="price-note">All prices in GBP. Coach and club licensing available on request.</p>
+
+      <div class="modal-cta">
+        <a class="btn-primary" href="https://www.youtube.com/shorts/Dy4KzBLZK-E" target="_blank" rel="noopener noreferrer">Watch KAZAPP in Action</a>
+        <a class="btn-secondary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Enquire About Access</a>
+      </div>
+
+      <p class="modal-tagline">Stop guessing your numbers. <span>Train with a coaching brain.</span></p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- 03 The Kaz Path & Shrug System -->
+<section class="product-section product-full" id="kaz-path">
+  <div class="text-block">
+    <span class="section-label"><span class="num">03</span>Hardware Device</span>
+    <h2>The Kaz Path &amp; Shrug System</h2>
+    <ul>
+      <li><strong>Instant Feedback:</strong> Provides a sharp visual laser cue tracking the bar path during the critical overhead drive from the jerk boxes.</li>
+      <li><strong>Technical Shrug Timing:</strong> Delivers instant visual cues right on the platform to master the vertical trajectory, explosive extension, and upper-body finish.</li>
+      <li><strong>Uninterrupted Momentum:</strong> Allows athletes to continue training autonomously at high intensity without wasting time stopping to check video delays on a phone.</li>
+    </ul>
+  </div>
+
+  <div class="full-figure">
+    <img src="kaz-barpath-shrug-all-in-one.jpeg" alt="The Kaz Path and Shrug System hardware device">
+  </div>
+
+  <div class="mini-gallery">
+    <figure>
+      <img src="kaz-path-poster.jpeg" alt="Kaz Path System information banner explaining the light system">
+      <figcaption>The Lights System</figcaption>
+    </figure>
+    <figure>
+      <video src="kaz-path-video-storyboard.mp4" controls muted playsinline preload="metadata"></video>
+      <figcaption>Watch It In Motion</figcaption>
+    </figure>
+  </div>
+
+  <div class="link-row link-row-inline">
+    <button type="button" class="btn btn-ghost" data-modal-open="kaz-path-modal">More Information</button>
+    <a class="btn" href="https://www.youtube.com/shorts/JjfhT1GtumU" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
+    <a class="btn" href="https://www.youtube.com/shorts/3YjCUQAf5bo" target="_blank" rel="noopener noreferrer">More Footage <span class="arrow">&rarr;</span></a>
+  </div>
+</section>
+<div class="modal-overlay" id="kaz-path-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="kaz-path-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">The Kaz Path System</span>
+      <h3 id="kaz-path-modal-title">Real-Time Precision, Where It Matters Most</h3>
+    </div>
+    <div class="modal-body">
+      <p><strong>Weightlifting technique is precise. Your feedback should be too.</strong></p>
+      <p>Olympic weightlifting (Snatch, Clean, and Jerk) is a highly technical sport where small visual errors can lead to missed lifts and inconsistent development. Coaches rely heavily on visual judgment, and athletes often struggle to understand their movement errors until after the lift, via delayed video analysis &mdash; a gap that slows down the learning curve.</p>
+
+      <h4>Introducing the Kaz Path System</h4>
+      <p>Developed by Kazem Panjavi, an Olympian and experienced weightlifting coach with over 35 years of experience training 1,300+ athletes, this system provides simple, instant, real-time feedback inside the training environment, during the movement.</p>
+
+      <h4>How It Works</h4>
+      <p>Instead of relying on distracting screens, mobile apps, or delayed analysis, the Kaz Path System introduces a visual reference directly into the rack/platform area.</p>
+      <ul>
+        <li><strong>Simple &amp; Instant:</strong> Immediate understanding of correct vs. incorrect movement.</li>
+        <li><strong>Integrated:</strong> A practical coaching tool built into standard equipment.</li>
+        <li><strong>Effective:</strong> Improves focus by reducing overthinking during the session.</li>
+      </ul>
+
+      <div class="mini-gallery">
+        <figure>
+          <img src="kaz-path-poster.jpeg" alt="Kaz Path System information banner explaining the light system">
+          <figcaption>The Lights System</figcaption>
+        </figure>
+        <figure>
+          <video src="kaz-path-video-storyboard.mp4" controls muted playsinline preload="metadata"></video>
+          <figcaption>Watch It In Motion</figcaption>
+        </figure>
+      </div>
+
+      <h4>The Lights</h4>
+      <ul class="light-legend">
+        <li><span class="light-dot" style="background:#2f6fed"></span><strong>Star Lift</strong> &mdash; an exceptional, textbook rep.</li>
+        <li><span class="light-dot" style="background:#2fa84f"></span><strong>Good Lift</strong> &mdash; clean and correct.</li>
+        <li><span class="light-dot" style="background:#e0b400"></span><strong>Not Bad</strong> &mdash; close, minor correction needed.</li>
+        <li><span class="light-dot" style="background:#d43b3b"></span><strong>Wrong</strong> &mdash; technical error, adjust immediately.</li>
+      </ul>
+
+      <h4>Why You Need It</h4>
+      <ul>
+        <li><strong>Fix Errors Instantly:</strong> Stops pushing forward or cutting your pull short.</li>
+        <li><strong>Accelerate Learning:</strong> Builds perfect muscle memory in half the time.</li>
+        <li><strong>Build Confidence:</strong> Gives you a physical, visual target to chase.</li>
+      </ul>
+
+      <h4>How to Try It Now</h4>
+      <ol class="try-steps">
+        <li>Step into the rack.</li>
+        <li>Keep the bar inside the vertical corridor.</li>
+        <li>Hit the horizontal ceiling at the top.</li>
+      </ol>
+
+      <h4>Who It's For</h4>
+      <p>From beginner to elite, from high-performance training centers to school youth programs, the Kaz Path System is designed to improve how technique is taught and learned. The goal isn't to replace coaching &mdash; it's to make feedback:</p>
+      <div class="modal-checklist">
+        <span>&#10003; Instant</span>
+        <span>&#10003; Clear</span>
+        <span>&#10003; Consistent</span>
+        <span>&#10003; Easy to Understand</span>
+      </div>
+
+      <div class="modal-cta">
+        <a class="btn-primary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Request a Quote</a>
+        <a class="btn-secondary" href="https://www.youtube.com/shorts/JjfhT1GtumU" target="_blank" rel="noopener noreferrer">See It Working</a>
+      </div>
+
+      <p class="modal-tagline">Step up and <span>chase the blue light.</span></p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+
+
+<div class="section-intro" id="books">
+  <span class="section-label">The Library</span>
+  <h2>Weightlifting Mastery Library</h2>
+  <p>Three books written from one rare vantage point &mdash; Olympian, national team coach, national record holder and international technical official. Together they cover the tactics of the platform, the science of the female athlete, and the first step for every new competitor.</p>
+</div>
+
+<!-- 04 Six Attempts: Six White Lights -->
+<section class="product-section reverse" id="book-1">
+  <div class="image-block">
+    <img src="six-attempts-six-white-lights-cover.jpg" alt="Six Attempts: Six White Lights book cover">
+  </div>
+  <div class="text-block">
+    <span class="section-label"><span class="num">04</span>Book</span>
+    <h2>Six Attempts: Six White Lights</h2>
+    <ul>
+      <li><strong>Target Focus:</strong> Technical standards, platform mastery, and physical peaking protocols for competitive Olympic lifters.</li>
+      <li><strong>The Value:</strong> Eliminates platform nerves and tactical errors by mapping out exact warm-up room strategies and attempt selections.</li>
+      <li><strong>Coaching Voice:</strong> Built directly on decades of international competition expertise and elite technical officiating standards.</li>
+    </ul>
+    <div class="link-row">
+      <a class="btn" href="https://amzn.eu/d/01Q4eV3X" target="_blank" rel="noopener noreferrer">Get it on Amazon <span class="arrow">&rarr;</span></a>
+      <button type="button" class="btn btn-ghost" data-modal-open="six-white-lights-modal">More Information</button>
+      <a class="btn" href="https://www.youtube.com/shorts/E5_rJJcUmBg" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
+      <span class="note">Scan the QR at checkout for instant access</span>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" id="six-white-lights-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="six-white-lights-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">04 Book Masterclass</span>
+      <h3 id="six-white-lights-modal-title">The Tactical Blueprint for Platform Mastery</h3>
+    </div>
+    <div class="modal-body">
+      <p>Most weightlifting books only teach you how to train inside the gym. They focus entirely on sets, reps, and generic templates. But thousands of lifters train perfectly for months, only to fail completely when they step onto the competitive stage. They lose because they do not understand how to navigate the intense pressure, strict timing, and psychological rules of a real competition.</p>
+      <p><em>Six Attempts: Six White Lights</em> is entirely different. Written from the multi-dimensional perspective of a Barcelona '92 Olympian, a Great Britain national team coach, a national record holder, and an elite International Technical Official, this book bridges the massive gap between gym strength and official platform success. It is the world's first comprehensive tactical guide to winning when the clock is ticking and three referees are watching your every move.</p>
+
+      <h4>What You Will Master Inside:</h4>
+      <ul>
+        <li><strong>The Science of the Warm-Up Room:</strong> Stop guessing when to take your last warm-up sets. Learn the exact timing protocols used by international coaches to ensure you step onto the platform perfectly peaked, warm, and confident&mdash;never rushed or cold.</li>
+        <li><strong>Strategic Attempt Selection:</strong> Discover how to play the tactical card game of weightlifting. Learn how to open safely, build momentum, make smart weight jumps based on what your opponents are doing, and force competitors into mistakes.</li>
+        <li><strong>Navigating the Technical Rulebook:</strong> Written by an active international referee, this guide pulls back the curtain on how officials judge lifts. Learn exactly what triggers a "red light" for press-outs, oscillations, or platform infractions, allowing you to clean up your technical habits.</li>
+        <li><strong>Conquering Platform Nerves:</strong> Eliminate the choking, anxiety, and mental errors that ruin peak performance. Turn the chaos of the competitive stage into a predictable, practiced skill.</li>
+      </ul>
+
+      <h4>The Complete Elite Package: Powered by Page_DownPage_Down</h4>
+      <p>The strategy does not end on the page. Six years after publishing this definitive tactical guide, <strong>Kaz Competition IQ</strong> software was developed to complete the ecosystem. This competition simulator takes the exact rules, countdown constraints, and referee lighting standards detailed in the book and turns them into an interactive software platform. By running the software right in your home club, you can practice under realistic match pressure. Together, the book and the software form a complete match-day masterclass&mdash;giving you the tactical roadmap and the real-time simulation tools required to step onto the stage and claim your six white lights.</p>
+
+      <div class="modal-checklist">
+        <span>&#10003; Olympian Peaking Protocols</span>
+        <span>&#10003; International Referee Technical Standards</span>
+        <span>&#10003; Elite Warm-Up Room Timing</span>
+        <span>&#10003; Seamlessly Integrated with Kaz Competition IQ</span>
+      </div>
+
+      <p class="modal-tagline">Gym strength gets you to the venue. <span>Tactical mastery wins the match.</span></p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- 05 Female Olympic Weightlifters -->
+<section class="product-section" id="book-2">
+  <div class="image-block">
+    <img src="female-olympic-weightlifters-cover.png" alt="Female Olympic Weightlifters book cover">
+  </div>
+  <div class="text-block">
+    <span class="section-label"><span class="num">05</span>Book</span>
+    <h2>Female Olympic Weightlifters</h2>
+    <ul>
+      <li><strong>100-Athlete Study:</strong> Built entirely on a real-world multi-year experiment tracking 100 female lifters across all performance levels.</li>
+      <li><strong>Hormonal Syncing:</strong> Teaches coaches and athletes how to read female hormones and sync training blocks to avoid injury.</li>
+      <li><strong>Advanced Recovery:</strong> Includes comprehensive breakdowns of safe elite supplementation, hydration, medicine use, and joint protection.</li>
+    </ul>
+    <div class="link-row">
+      <a class="btn" href="https://amzn.eu/d/0fFC8TGf" target="_blank" rel="noopener noreferrer">Get it on Amazon <span class="arrow">&rarr;</span></a>
+      <button type="button" class="btn btn-ghost" data-modal-open="female-lifters-modal">More Information</button>
+      <a class="btn" href="https://www.youtube.com/shorts/inqaaYqVe_M" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
+      <span class="note">Scan the QR at checkout for instant access</span>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" id="female-lifters-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="female-lifters-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">05 Book Masterclass</span>
+      <h3 id="female-lifters-modal-title">The Science of Female Athletic Longevity</h3>
+    </div>
+    <div class="modal-body">
+      <p>Historically, sports science has ignored the female athlete. Almost every major strength training manual or programming textbook on the market is built entirely on research conducted on men. Coaches then blindly apply these male-centric templates to female lifters, leading to performance stagnation, unexplained fatigue, and a significantly higher rate of severe soft-tissue and joint injuries.</p>
+      <p><em>Female Olympic Weightlifters</em> shatters this outdated paradigm. Written from the multi-dimensional perspective of a Barcelona '92 Olympian, a Great Britain national team coach, and a national record holder, this book is the culmination of a groundbreaking, multi-year study that tracked 100 female lifters across every competitive performance level. It provides coaches and athletes with a definitive, scientifically grounded blueprint to maximize strength, optimize health, and protect structural longevity.</p>
+
+      <h4>What You Will Master Inside:</h4>
+      <ul>
+        <li><strong>The 100-Athlete Empirical Dataset:</strong> Explore the real-world findings from a multi-year experiment documenting exactly how female bodies adapt, recover, and express power under heavy barbell loads.</li>
+        <li><strong>True Hormonal Programming Synchronization:</strong> Stop treating recovery as a static variable. Learn how to accurately track shifting hormonal phases and structurally modify training block volume and intensity. Discover exactly when a female lifter's biology is optimized for maximum power expression versus when structural joints require strict protection.</li>
+        <li><strong>Elite Advanced Recovery Protocols:</strong> Master the hidden variables of elite performance. Get comprehensive, evidence-based breakdowns detailing safe supplementation, precise hydration strategies, responsible medicine use, and targeted joint-preservation techniques.</li>
+        <li><strong>Preventing the Gender Injury Gap:</strong> Understand the biomechanical and physiological markers that put female lifters at risk, and implement proactive coaching strategies to completely eliminate avoidable training setbacks.</li>
+      </ul>
+
+      <h4>The Engine Powering KAZAPP</h4>
+      <p>The elite research detailed on these pages serves as the foundational mathematical engine behind <strong>KAZAPP</strong>. Six years after this study was finalized, its precise hormonal tracking algorithms and auto-regulation rules were packaged directly into the KAZAPP mobile software. Together, the book and the app form an unshakeable package&mdash;giving you the deep scientific theory and the automated daily programming required to achieve world-class results.</p>
+
+      <div class="modal-checklist">
+        <span>&#10003; The World's Premier 100-Female Study</span>
+        <span>&#10003; Precision Biological Cycle Synchronization</span>
+        <span>&#10003; Elite Supplementation &amp; Hydration Protocols</span>
+        <span>&#10003; Foundational Mathematical Engine Behind KAZAPP</span>
+      </div>
+
+      <p class="modal-tagline">Stop training on male blueprints. <span>Unlock the true power of female physiology.</span></p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- 06 How to Win Olympic Weightlifting Competitions -->
+<section class="product-section reverse" id="book-3">
+  <div class="image-block">
+    <img src="how to win book.jpg" alt="How to Win Olympic Weightlifting Competitions book cover">
+  </div>
+  <div class="text-block">
+    <span class="section-label"><span class="num">06</span>Book</span>
+    <h2>How to Win Olympic Weightlifting Competitions</h2>
+    <ul>
+      <li><strong>Competition Strategy:</strong> A practical guide to attempt selection, pacing, and reading the competition as it unfolds.</li>
+      <li><strong>Technical Preparation:</strong> Sharpens the specific skills and habits that hold up under real platform pressure, not just in training.</li>
+      <li><strong>Mental Readiness:</strong> Prepares lifters for the realities of performing on the platform, from nerves to the unexpected.</li>
+    </ul>
+    <div class="link-row">
+      <a class="btn" href="https://www.amazon.co.uk/dp/B089M2J3KQ" target="_blank" rel="noopener noreferrer">Get it on Amazon <span class="arrow">&rarr;</span></a>
+      <button type="button" class="btn btn-ghost" data-modal-open="how-to-win-modal">More Information</button>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" id="how-to-win-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="how-to-win-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">06 Book Guide</span>
+      <h3 id="how-to-win-modal-title">Your First Step Onto the Platform</h3>
+    </div>
+    <div class="modal-body">
+      <p>Not every lifter is chasing a national title. Many train hard, fall in love with the sport, and simply want to step onto the platform and compete well without feeling lost or overwhelmed. This book is written for them.</p>
+      <p><em>How to Win Olympic Weightlifting Competitions</em> is the original, foundational guide that Kazem Panjavi later expanded into the advanced masterclass <em>Six Attempts: Six White Lights</em>. Where the later book dives deep into elite tactical detail, this first edition keeps things clear and approachable&mdash;focused on the essentials every beginner and club-level competitor needs to walk onto the stage with confidence.</p>
+
+      <h4>What You Will Learn Inside:</h4>
+      <ul>
+        <li><strong>Competition Strategy:</strong> A practical, beginner-friendly guide to attempt selection, pacing your lifts, and reading the competition as it unfolds around you.</li>
+        <li><strong>Technical Preparation:</strong> Sharpens the specific skills and habits that hold up under real platform pressure&mdash;not just the ones that feel good in training.</li>
+        <li><strong>Mental Readiness:</strong> Prepares you for the realities of performing on the platform, from first-timer nerves to the unexpected moments every competition brings.</li>
+      </ul>
+
+      <h4>Who This Book Is For</h4>
+      <p>This is the ideal starting point for novice lifters and enthusiastic amateurs&mdash;people who aren't full-time professional athletes but genuinely love to compete. It gives you the core rules of the game in plain language, so your first competitions feel exciting rather than intimidating. When you're ready to go deeper, <strong>Six Attempts: Six White Lights</strong> continues the journey with advanced, elite-level tactics.</p>
+
+      <div class="modal-checklist">
+        <span>&#10003; Beginner &amp; Novice Friendly</span>
+        <span>&#10003; The Original Competition Guide</span>
+        <span>&#10003; Plain-Language Platform Basics</span>
+        <span>&#10003; The First Step Toward Six White Lights</span>
+      </div>
+
+      <p class="modal-tagline">Everyone starts somewhere. <span>Make your first platform your best.</span></p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- 07 The Kaz Bar Drill -->
+<section class="product-section" id="bar-drill">
+  <div class="video-figure">
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/zi40z6BKS8U" title="The Kaz Bar Drill" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="text-block">
+    <span class="section-label"><span class="num">07</span>Training Drill</span>
+    <img class="product-wordmark" src="kaz%20bar%20drill%20logo.png" alt="Kaz Bar Drill">
+    <h2>The Kaz Bar Drill</h2>
+    <p class="scoreboard-subtitle">The Complete Olympic Warm-Up in Under Five Minutes</p>
+    <ul>
+      <li><strong>Every Joint, In One Sequence:</strong> Two rounds prepare the joints, ligaments and muscles Olympic weightlifting actually demands &mdash; a full warm-up for the days when there is no time for one.</li>
+      <li><strong>Two Complete Progressions:</strong> A wide-grip snatch sequence and a narrow-grip clean sequence, each starting from the floor and finishing overhead.</li>
+      <li><strong>Twelve Structured Sessions:</strong> A defined progression from 15kg for two rounds of five, through to 20kg for two rounds of ten.</li>
+      <li><strong>Built for Technique:</strong> Every position in the drill teaches a position used in the full lifts, so the warm-up doubles as technical practice.</li>
+    </ul>
+    <div class="link-row">
+      <button type="button" class="btn btn-ghost" data-modal-open="bar-drill-modal">More Information</button>
+      <a class="btn" href="https://youtu.be/zi40z6BKS8U" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+<!-- The Kaz Bar Drill Detailed Pop-up Modal -->
+<div class="modal-overlay" id="bar-drill-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="bar-drill-modal-title">
+    <div class="modal-header">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+      <span class="eyebrow">07 Training Drill</span>
+      <h3 id="bar-drill-modal-title">A Comprehensive Guide to Mastering Weightlifting</h3>
+    </div>
+    <div class="modal-body">
+      <p>The Kaz Bar Drill is a specialised weightlifting exercise designed to enhance strength and improve technique for beginners. Using a unique barbell known as the <strong>Kaz Bar</strong>, the drill focuses on promoting proper form and maximising lifting efficiency.</p>
+      <p>It is built to target the key muscle groups of Olympic weightlifting, which makes it a practical component of any serious training regimen. Whether you are a novice or an experienced lifter, the Kaz Bar Drill offers a challenging but rewarding session.</p>
+
+      <h4>Step-by-Step Progression</h4>
+      <p>The exercise begins from the ground floor and finishes with an overhead warm-up.</p>
+
+      <h4>Snatch &mdash; Wide Grip</h4>
+      <ul>
+        <li><strong>A &mdash; RDL:</strong> The bar needs to touch the ankle, with straight knees and straight arms.</li>
+        <li><strong>B &mdash; High Pull (Scarecrow):</strong> Start from straight arms and knees, from the hips, and pull to under your chest &mdash; elbows towards the ceiling at shoulder level.</li>
+        <li><strong>C &mdash; Muscle Snatch:</strong> From the sternum, below the chest.</li>
+        <li><strong>D &mdash; Overhead Squat:</strong> Sit as low as possible, with slow movement.</li>
+        <li><strong>E &mdash; Press Behind Neck:</strong> Execute a strong elbow lockout.</li>
+        <li><strong>F &mdash; Good Morning:</strong> Bend the knees 10 to 15 degrees; shoulder level should be level with knee level.</li>
+        <li><strong>G &mdash; Half Squat Pause and High Jump:</strong> Back to the half squat again, with a pause.</li>
+      </ul>
+
+      <h4>Clean &mdash; Narrow Grip</h4>
+      <ul>
+        <li><strong>A &mdash; RDL:</strong> The bar needs to touch the ankle, with straight knees and straight arms.</li>
+        <li><strong>B &mdash; Bend Over Row:</strong> Start from the kneecap to the sternum, under the chest; elbows move upward to the ceiling.</li>
+        <li><strong>C &mdash; Muscle Clean:</strong> From the hips to the collarbone. The bar needs to stay very close to the body &mdash; do not act like a T-Rex.</li>
+        <li><strong>D &mdash; Elbow Rotation:</strong> The bar sits in the front squat position. One elbow holds the bar tight, pointing to the ground, while the other rotates on the tips of the fingers with the elbow pointing to the ceiling. Make sure the bar does not move and the elbows alternate smoothly.</li>
+        <li><strong>E &mdash; Thruster:</strong> From the half squat position, hold, and after extension of the knee push the bar overhead using the momentum built up from the front squat.</li>
+        <li><strong>F &mdash; Split Jump:</strong> Bar at the back of the neck, both knees bending at the same time. The front foot should be visible to the lifter over the knee with a vertical shin; the back leg bent 45 degrees, back foot on all five toes.</li>
+        <li><strong>G &mdash; Bar Rotation:</strong> The same as the split jump, but the back knee bends 90 degrees. Look forward as the bar rotates 180 degrees, finishing at the front of the lifter, then change the leg.</li>
+        <li><strong>H &mdash; Bar Overhead Lock:</strong> The elbows need flexion; hold the bar tight, then let it go to the tips of the fingers.</li>
+      </ul>
+
+      <h4>Session Order</h4>
+      <p>Weight can be added if you want, in the order of session one to six.</p>
+      <div class="price-grid">
+        <div class="price-item"><span class="price-name">Session 1</span><span class="price-tag">15kg &times; 2 &times; 5</span></div>
+        <div class="price-item"><span class="price-name">Session 2</span><span class="price-tag">15kg &times; 2 &times; 6</span></div>
+        <div class="price-item"><span class="price-name">Session 3</span><span class="price-tag">15kg &times; 2 &times; 7</span></div>
+        <div class="price-item"><span class="price-name">Session 4</span><span class="price-tag">15kg &times; 2 &times; 8</span></div>
+        <div class="price-item"><span class="price-name">Session 5</span><span class="price-tag">15kg &times; 2 &times; 9</span></div>
+        <div class="price-item"><span class="price-name">Session 6</span><span class="price-tag">15kg &times; 2 &times; 10</span></div>
+        <div class="price-item"><span class="price-name">Session 7</span><span class="price-tag">20kg &times; 2 &times; 5</span></div>
+        <div class="price-item"><span class="price-name">Session 8</span><span class="price-tag">20kg &times; 2 &times; 6</span></div>
+        <div class="price-item"><span class="price-name">Session 9</span><span class="price-tag">20kg &times; 2 &times; 7</span></div>
+        <div class="price-item"><span class="price-name">Session 10</span><span class="price-tag">20kg &times; 2 &times; 8</span></div>
+        <div class="price-item"><span class="price-name">Session 11</span><span class="price-tag">20kg &times; 2 &times; 9</span></div>
+        <div class="price-item"><span class="price-name">Session 12</span><span class="price-tag">20kg &times; 2 &times; 10</span></div>
+      </div>
+
+      <h4>Warm-Up</h4>
+      <p>Before starting the drill it is crucial to warm up properly. This prepares the body for the work ahead and helps prevent injuries. A warm-up should include light cardio to raise the heart rate and dynamic stretches to loosen the muscles.</p>
+      <p>Time efficiency matters, though. If you are pressed for time and need to get down to business, the <strong>two-round bar drill</strong> is an excellent option on its own. It warms up all the joints, ligaments and muscles required for Olympic weightlifting in less than five minutes &mdash; a way to make sure the body is prepared even when the clock is against you. A proper warm-up prevents injuries and improves overall performance, so even when time is tight, do not skip this step.</p>
+
+      <div class="modal-checklist">
+        <span>&#10003; Full Warm-Up Under Five Minutes</span>
+        <span>&#10003; Snatch &amp; Clean Sequences</span>
+        <span>&#10003; Twelve-Session Progression</span>
+        <span>&#10003; Beginner to Experienced</span>
+      </div>
+
+      <div class="modal-cta">
+        <a class="btn-primary" href="https://youtu.be/zi40z6BKS8U" target="_blank" rel="noopener noreferrer">Watch the Full Drill</a>
+        <a class="btn-secondary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Ask a Question</a>
+      </div>
+
+      <p class="modal-tagline">Consistency is what shows progress. <span>Stick with it and the results come.</span></p>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Research, Writing & Coming Soon -->
+<div class="research-band" id="research">
+  <div class="research-inner">
+    <span class="section-label">Research &amp; Writing</span>
+    <h2>From the Desk</h2>
+    <p class="research-lede">Work in progress, published articles, and what is coming next. Open any panel to read more.</p>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-research">Research</span>
+        <span class="research-title">100 Years of Olympic History &mdash; The Evolution of IWF Bodyweight Categories</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p>A book in progress tracing every senior bodyweight category the sport has used from <strong>1920 to 2028</strong> &mdash; men, women, youth and Olympic classes &mdash; and what each reshuffle did to the athletes living through it.</p>
+        <p><strong>Looking ahead to Los Angeles 2028.</strong> The IOC has approved an increase to six Olympic categories per gender for LA 2028, up from five in Paris. The IWF has also introduced a new eight-category World standard starting in 2026.</p>
+
+        <div class="table-scroll">
+          <table class="cat-table">
+            <thead>
+              <tr><th>Era</th><th>Men &mdash; Senior (kg)</th><th>Women &mdash; Senior (kg)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>1920&ndash;1972</strong><br><span class="era-name">Early Era</span></td><td><em>5 categories</em><br>60, 67.5, 75, 82.5, +82.5</td><td><em>Not yet official</em></td></tr>
+              <tr><td><strong>1972&ndash;1992</strong><br><span class="era-name">Classic Era</span></td><td><em>10 categories</em><br>52, 56, 60, 67.5, 75, 82.5, 90, 100, 110, +110</td><td><em>9 categories (est. 1987)</em><br>44, 48, 52, 56, 60, 67.5, 75, 82.5, +82.5</td></tr>
+              <tr><td><strong>1993&ndash;1997</strong><br><span class="era-name">First Reset</span></td><td><em>10 categories</em><br>54, 59, 64, 70, 76, 83, 91, 99, 108, +108</td><td><em>9 categories</em><br>46, 50, 54, 59, 64, 70, 76, 83, +83</td></tr>
+              <tr><td><strong>1998&ndash;2018</strong><br><span class="era-name">Sydney&ndash;Rio</span></td><td><em>8 categories</em><br>56, 62, 69, 77, 85, 94, 105, +105</td><td><em>7 categories</em><br>48, 53, 58, 63, 69, 75, +75</td></tr>
+              <tr><td><strong>2018&ndash;2024</strong><br><span class="era-name">Tokyo&ndash;Paris</span></td><td><em>10 categories</em><br>55, 61, 67, 73, 81, 89, 96, 102, 109, +109</td><td><em>10 categories</em><br>45, 49, 55, 59, 64, 71, 76, 81, 87, +87</td></tr>
+              <tr><td><strong>From Jun 2025</strong><br><span class="era-name">Interim</span></td><td><em>8 categories</em><br>60, 65, 71, 79, 88, 94, 110, +110</td><td><em>8 categories</em><br>48, 53, 58, 63, 69, 77, 86, +86</td></tr>
+              <tr><td><strong>From Aug 2026</strong><br><span class="era-name">World Standard</span></td><td><em>8 categories</em><br>60, 65, 70, 75, 85, 95, 110, +110</td><td><em>8 categories</em><br>49, 53, 57, 61, 69, 77, 86, +86</td></tr>
+              <tr class="row-highlight"><td><strong>LA 2028</strong><br><span class="era-name">Olympic</span></td><td><em>6 categories</em><br>65, 75, 85, 95, 110, +110</td><td><em>6 categories</em><br>53, 61, 69, 77, 86, +86</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="research-note">Chapter extract from the upcoming book, by Kazem Panjavi.</p>
+      </div>
+    </details>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-article">Article</span>
+        <span class="research-title">From Barcelona &rsquo;92 to LA 2028: My Weightlifting Category Journey</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p>Weight categories are not just labels on paper. They shape everything &mdash; how an athlete eats, recovers, sleeps, trains, and feels on the platform. This is a first-hand account of what happens when a lifter is forced into the wrong class, and what becomes possible when the right one fits.</p>
+        <p>At the <strong>1992 Barcelona Olympic Games</strong> Kazem competed at 67.5 kg &mdash; not his natural bodyweight. Making weight meant cutting to around 66.7 kg, which left him drained and unstable, and contributed to a serious shoulder injury. When the categories were reorganised and his class moved to <strong>70 kg</strong>, the sport felt different: a 2.5 kg adjustment instead of a constant fight. It led to his best lifts &mdash; <strong>140.5 kg snatch</strong> and <strong>175 kg clean &amp; jerk</strong>, recognised as a new Iranian record.</p>
+        <p>The story continues through his move to the UK in 1995, Best Lifter of the Year at the 1999 London Open, competing at 77 kg at the age of 37, and becoming <strong>British Champion in 2002</strong> &mdash; clean &amp; jerking 152.5 kg on one leg after injuring his knee earlier in the competition.</p>
+        <div class="modal-cta">
+          <a class="btn-primary" href="https://www.linkedin.com/posts/kazem-panjavi-96a9a230_from-barcelona-92-to-la-2028-my-weightlifting-ugcPost-7406054376638672896-B_x7/" target="_blank" rel="noopener noreferrer">Read the Full Story on LinkedIn</a>
+          <a class="btn-secondary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">More About Kazem</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-article">Coaching</span>
+        <span class="research-title">Join Kazem Panjavi&rsquo;s Elite Training Programme</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p>Experience the transformative power of Kazem Panjavi&rsquo;s personalised training approach. Kazem&rsquo;s expertise and guidance will propel you towards success, whether you aspire to compete at the highest level or simply want to elevate your fitness journey.</p>
+        <p>Don&rsquo;t miss the opportunity to train with a true champion and unlock your full potential. Enrol now and embark on a fitness journey like no other.</p>
+        <div class="modal-cta">
+          <a class="btn-primary" href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Enrol Now</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="research-item">
+      <summary>
+        <span class="research-tag tag-soon">Coming Soon</span>
+        <span class="research-title">KAZ Easy Coach</span>
+        <span class="research-plus" aria-hidden="true"></span>
+      </summary>
+      <div class="research-body">
+        <p><strong>Too many lifters are being taught by people who have never done it.</strong> Some have no coach at all. Others have a coach who qualified entirely online &mdash; a weekend of videos and a certificate &mdash; who has never stood in a warm-up room, never called an attempt, and has never coached a lifter through a real competition.</p>
+        <p>A certificate is not experience. If you have only ever seen the sport through a screen, you cannot spot the fault standing in front of you, you cannot fix it in the moment, and you cannot tell an athlete what competition day is actually going to do to them. Lifters pay for that gap &mdash; in wasted years, bad habits that take longer to unlearn than to learn, and injuries that were entirely avoidable.</p>
+        <p><strong>KAZ Easy Coach</strong> is being written to close it: a clear, step-by-step guide to teaching the lifts properly, from the first position through to the full movement. For the lifter with nobody to ask, it is a correct path to follow. For the newer coach, it is a structure built on 35 years, 1,300 athletes and an Olympic platform &mdash; not on theory.</p>
+        <p class="research-note">In development. Details to follow.</p>
+      </div>
+    </details>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 07 Phoenix Cup Legacy & Fantastic Four -->
+<section class="community-section" id="fantastic-four">
+  <span class="section-label"><span class="num">08</span>Community</span>
+  <h2>Phoenix Cup Legacy &amp; Fantastic Four</h2>
+
+  <div class="community-intro">
+    <p><strong>Why this matters.</strong> International weightlifting sits behind institutional gates. National federations, the IWF and government sport bodies decide who competes, where, and under whose budget. Almost nobody stages a genuine international competition without that machinery behind them.</p>
+    <p><strong>Four times, it was done anyway.</strong> The Phoenix Cup was organised single-handed, with no national governing body support and no public funding &mdash; and three editions still earned a place on the official IWF calendar, bringing national teams from seven countries to a club in West London.</p>
+    <p><strong>That is the credential behind everything on this page.</strong> The software, the app and the hardware were not designed from theory. They came from the person who had to run the clock, brief the referees, manage the warm-up room and answer for every decision on the day.</p>
+  </div>
+
+  <div class="community-grid">
+    <!-- LEFT: Phoenix Cup -->
+    <div class="community-card">
+      <img src="Phoenix background.jpg" alt="Phoenix Cup international weightlifting competition venue">
+      <div>
+        <h3>Phoenix Cup Legacy</h3>
+        <p><strong>2014&ndash;2018.</strong> Four self-organised international competitions, run single-handed with no NGB support &mdash; three reached the official IWF calendar.</p>
+        <p><strong>Seven countries.</strong> National teams from Germany, Belgium and Sweden, plus France (two teams), Austria, Switzerland and India.</p>
+        <p><strong>The proof.</strong> World-class competition can exist outside the institutions &mdash; built on one Olympian&rsquo;s vision and expertise alone.</p>
+        <div class="community-links">
+          <a class="btn btn-ghost" href="https://youtu.be/BPHjb7dVKkc?si=xPt3jlKiJ1k_5Nkj" target="_blank" rel="noopener noreferrer">2014</a>
+          <a class="btn btn-ghost" href="https://youtu.be/8ebx7BYTgUc?si=Oqqy9_87V3Pg3BTE" target="_blank" rel="noopener noreferrer">2016</a>
+          <a class="btn btn-ghost" href="https://youtu.be/sWwPy0ppTkQ?si=-ygI1E_5l6HQo0QS" target="_blank" rel="noopener noreferrer">2017</a>
+          <a class="btn btn-ghost" href="https://youtu.be/-Gj4oyJDxHE?si=8sJM5bU_L6j7UYQX" target="_blank" rel="noopener noreferrer">2018</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Fantastic Four -->
+    <div class="community-card">
+      <img src="Final Poster for web.jpg" alt="Fantastic 4 Challenge banner, Ealing Weightlifting Club">
+      <div>
+        <h3>Fantastic Four</h3>
+        <p><strong>The next chapter.</strong> A permanent, recurring team event &mdash; the natural evolution of four editions of the Phoenix Cup.</p>
+        <p><strong>One team, four generations.</strong> Different ages, genders and strengths lifting together as a single team, not as individuals.</p>
+        <p><strong>Beyond the solo sport.</strong> Weightlifting built, organised and celebrated as a shared achievement at the highest competitive level.</p>
+        <div class="community-links">
+          <a class="btn" href="https://youtu.be/CwIQvoUnOh0?si=bQPoTH4mK877dM4Q" target="_blank" rel="noopener noreferrer">Watch &mdash; Adults</a>
+          <a class="btn btn-ghost" href="https://youtu.be/95E6NIVwAI8?si=f0HWKx5aZNqWLwWG" target="_blank" rel="noopener noreferrer">Watch &mdash; Kids</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-brand">KAZ<span class="trademark">&trade;</span> Ecosystem</div>
+  <p>Contact: <a href="https://ealingweightlifting.uk/about-us/about-kazem/" target="_blank" rel="noopener noreferrer">Kazem Panjavi</a> &nbsp;|&nbsp; <a href="about-kaz.html">About Kaz</a> &nbsp;|&nbsp; Ealing Weightlifting Club &nbsp;|&nbsp; <a href="https://ealingweightlifting.uk" target="_blank" rel="noopener noreferrer">ealingweightlifting.uk</a></p>
+  <a class="back-to-top" href="#top">Back to top &uarr;</a>
+  <p class="ip-notice">
+    &copy; 2026 Kazem Panjavi. All rights reserved.<br>
+    KAZ, Kaz Competition IQ, KAZAPP and the Kaz Path &amp; Shrug System &mdash; together with the associated software, hardware designs, written work and branding &mdash; are the intellectual property of Kazem Panjavi. A UK trade mark application for the KAZ brand is currently pending. Unauthorised reproduction or commercial use is prohibited.
+  </p>
+</footer>
+
+<script>
+  var sections = document.querySelectorAll('.product-section');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+  } else {
+    sections.forEach(function (section) {
+      section.classList.add('in-view');
+    });
+  }
+
+  function openModal(modal) {
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-modal-open]').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var modal = document.getElementById(trigger.getAttribute('data-modal-open'));
+      if (modal) openModal(modal);
+    });
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+    overlay.addEventListener('click', function (event) {
+      if (event.target === overlay) closeModal(overlay);
+    });
+    overlay.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        closeModal(overlay);
+      });
+    });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.is-open').forEach(function (overlay) {
+        closeModal(overlay);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
