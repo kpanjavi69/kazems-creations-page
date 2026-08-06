@@ -1420,6 +1420,222 @@
     white-space: nowrap;
   }
 
+  /* Start Here: three routing cards so a visitor finds their own path
+     instead of scrolling the whole ecosystem to work out what applies. */
+  .start-here {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 54px 30px 10px;
+  }
+
+  .start-here-head {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .start-here-head .section-label {
+    display: inline-flex;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .start-here-head h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .start-here-head p {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .start-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .start-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--panel-bg);
+    border: 1px solid rgba(179, 143, 79, 0.35);
+    border-top: 3px solid var(--gold);
+    border-radius: 0 0 12px 12px;
+    padding: 26px 24px 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .start-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(17, 29, 40, 0.13);
+  }
+
+  .start-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: var(--navy-dark);
+    margin-bottom: 8px;
+  }
+
+  .start-card .start-problem {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .start-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .start-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 14px;
+    background: rgba(179, 143, 79, 0.1);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    color: var(--navy-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .start-links a:hover {
+    background: rgba(179, 143, 79, 0.22);
+    transform: translateX(3px);
+  }
+
+  .start-links a::after {
+    content: "\2192";
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .start-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .start-here {
+      padding: 44px 22px 4px;
+    }
+
+    .start-here-head h2 {
+      font-size: 1.7rem;
+    }
+  }
+
+  /* Problem line that opens a product section — sells the outcome
+     before the feature list rather than after it. */
+  .problem-line {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.16rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.45;
+    margin-bottom: 18px;
+    padding-left: 16px;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* Who-it's-for split inside a product section */
+  .audience-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 4px 0 24px;
+  }
+
+  .audience {
+    padding: 16px 18px;
+    background: rgba(179, 143, 79, 0.09);
+    border-radius: 8px;
+    border-top: 2px solid var(--gold);
+  }
+
+  .audience h4 {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .audience p {
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .audience-split {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .problem-line {
+      font-size: 1.05rem;
+    }
+  }
+
+  /* Credential stamp at the point of sale */
+  .credit-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    padding: 8px 14px 8px 12px;
+    background: rgba(17, 29, 40, 0.05);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.85rem;
+    color: var(--navy-dark);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .credit-stamp::before {
+    content: "\2713";
+    color: var(--gold);
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* Phoenix line under the hero credentials */
+  .hero-proof {
+    max-width: 640px;
+    margin: 22px auto 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #c5cdd4;
+  }
+
+  .hero-proof strong {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
   /* Research & writing: collapsed accordion so a lot of material costs
      almost no page height until someone asks for it. */
   .research-band {
@@ -2058,6 +2274,7 @@
   <div class="nav-inner">
     <a class="nav-logo" href="#top">KAZ<span class="trademark">&trade;</span> <span>Ecosystem</span></a>
     <ul class="nav-links">
+      <li><a href="#start-here">Start Here</a></li>
       <li><a href="#scoreboard">Competition IQ</a></li>
       <li><a href="#kazapp">KAZAPP</a></li>
       <li><a href="#kaz-path">Kaz Path</a></li>
@@ -2094,6 +2311,7 @@
         <a class="credential-pill" href="https://youtu.be/rOSlzfPc_24?si=FTMAbyFCTCvVxeuS" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span class="dot"></span>National Record Holder</a>
         <a class="credential-pill" href="https://youtu.be/nJQopdlDCHo?si=QbEoL4YNzWt4rGvP" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><span class="dot"></span>GB National Team &amp; Odisha Chief Coach</a>
       </div>
+      <p class="hero-proof">Organised <strong>four international competitions single-handed</strong> with no federation backing &mdash; three earned a place on the official IWF calendar.</p>
       <div class="cta-buttons hero-cta">
         <button type="button" class="btn-primary" data-modal-open="scoreboard-live-modal">Try Competition IQ Live</button>
         <a class="btn-secondary" href="#kazapp">Explore KAZAPP</a>
@@ -2112,6 +2330,47 @@
   </div>
 </header>
 
+<!-- Start Here -->
+<div class="start-here" id="start-here">
+  <div class="start-here-head">
+    <span class="section-label">Start Here</span>
+    <h2>What Are You Trying to Fix?</h2>
+    <p>Everything here was built to solve a problem someone was actually having. Find yours.</p>
+  </div>
+
+  <div class="start-grid">
+    <div class="start-card">
+      <h3>I'm an Athlete</h3>
+      <p class="start-problem">You train hard, but the programme ignores how your body feels today &mdash; and competitions still feel like a lottery.</p>
+      <div class="start-links">
+        <a href="#kazapp">Training that adapts to you</a>
+        <a href="#books">Learn to compete, not just lift</a>
+        <a href="#bar-drill">Warm up properly in five minutes</a>
+      </div>
+    </div>
+
+    <div class="start-card">
+      <h3>I'm a Coach</h3>
+      <p class="start-problem">You are calling attempts under pressure with no way to practise, and writing programmes that ignore the athlete in front of you.</p>
+      <div class="start-links">
+        <a href="#scoreboard">Rehearse competition day</a>
+        <a href="#kazapp">Auto-regulated programming</a>
+        <a href="#kaz-path">Instant technical feedback</a>
+        <a href="#research">A coaching structure that works</a>
+      </div>
+    </div>
+
+    <div class="start-card">
+      <h3>I Run a Club or Competition</h3>
+      <p class="start-problem">You need your lifters ready for the real thing, and a proper scoreboard when you run the event yourself.</p>
+      <div class="start-links">
+        <a href="#scoreboard">Run and simulate competitions</a>
+        <a href="#kaz-path">Coach more lifters at once</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- 01 Kaz Competition IQ -->
 <section class="product-section" id="scoreboard">
   <div class="image-block">
@@ -2122,12 +2381,26 @@
     <span class="section-label"><span class="num">01</span>Software</span>
     <h2>Kaz Competition IQ</h2>
     <p class="scoreboard-subtitle">Olympic Weightlifting Scoreboard Software</p>
+    <p class="problem-line">Most coaches only learn attempt selection by getting it wrong on competition day &mdash; at the cost of their athlete's result.</p>
+
+    <div class="audience-split">
+      <div class="audience">
+        <h4>For the Coach</h4>
+        <p>Practise calling weights, warm-up timing and reacting to a rival's change &mdash; as many times as you need, before any of it counts. Those calls become trained instinct instead of guesswork.</p>
+      </div>
+      <div class="audience">
+        <h4>For the Athlete</h4>
+        <p>Step onto the platform having already felt the clock, the lifting order and the referee lights. Nothing on the day is happening to you for the first time.</p>
+      </div>
+    </div>
+
     <ul>
       <li><strong>Virtual Competition Simulator:</strong> A powerful tool designed to help coaches and athletes simulate and practice real match scenarios right in their home club.</li>
       <li><strong>Real-Time Tracking:</strong> Manages countdown clocks, lifting orders, and referee light displays exactly like an official international tournament.</li>
       <li><strong>Sharper Coaching Decisions:</strong> Lets coaches rehearse attempt calls, warm-up timing, and weight selection under realistic pressure, so those calls become practiced skill instead of costly guesswork on competition day.</li>
       <li><strong>Stress Management:</strong> Prepares lifters mentally for the pressure, clock constraints, and chaotic environment of a real weightlifting stage.</li>
     </ul>
+    <p class="credit-stamp">Built by an active IWF International Technical Official &mdash; the referee logic is the real thing.</p>
     <div class="link-row">
       <button type="button" class="btn" data-modal-open="scoreboard-live-modal">Try It Live <span class="arrow">&rarr;</span></button>
       <button type="button" class="btn btn-ghost" data-modal-open="competition-iq-modal">More Information</button>
@@ -2208,12 +2481,14 @@
   <div class="text-block">
     <span class="section-label"><span class="num">02</span>Mobile App</span>
     <h2>KAZAPP Mobile Application</h2>
+    <p class="problem-line">A spreadsheet written weeks ago does not know you slept badly, and it will still tell you to hit the number.</p>
     <ul>
       <li><strong>The Core Choice:</strong> Replaces rigid spreadsheet programs, encouraging lifters to listen to their body to avoid injury.</li>
       <li><strong>Female Auto-Regulation:</strong> Synchronizes training logs with changing hormonal levels and cycle phases.</li>
       <li><strong>Male Auto-Regulation:</strong> Adapts daily weight percentages using real-time feeling and recovery metrics.</li>
       <li><strong>10 Built-In Programs:</strong> Steps systematically from complete beginner to international competition plans.</li>
     </ul>
+    <p class="credit-stamp">Female programming built on a multi-year study of 100 elite female lifters.</p>
     <div class="link-row">
       <button type="button" class="btn btn-ghost" data-modal-open="kazapp-modal">More Information</button>
       <a class="btn" href="https://www.youtube.com/shorts/Dy4KzBLZK-E" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
@@ -2330,6 +2605,7 @@
   <div class="text-block">
     <span class="section-label"><span class="num">03</span>Hardware Device</span>
     <h2>The Kaz Path &amp; Shrug System</h2>
+    <p class="problem-line">By the time a lifter watches the video back, they have already done three more reps the same wrong way.</p>
     <ul>
       <li><strong>Instant Feedback:</strong> Provides a sharp visual laser cue tracking the bar path during the critical overhead drive from the jerk boxes.</li>
       <li><strong>Technical Shrug Timing:</strong> Delivers instant visual cues right on the platform to master the vertical trajectory, explosive extension, and upper-body finish.</li>
@@ -2352,6 +2628,7 @@
     </figure>
   </div>
 
+  <p class="credit-stamp" style="margin: 30px auto 0; display: flex; max-width: 840px;">Designed across 35 years of coaching and more than 1,300 athletes.</p>
   <div class="link-row link-row-inline">
     <button type="button" class="btn btn-ghost" data-modal-open="kaz-path-modal">More Information</button>
     <a class="btn" href="https://www.youtube.com/shorts/JjfhT1GtumU" target="_blank" rel="noopener noreferrer">Watch on YouTube <span class="arrow">&rarr;</span></a>
@@ -2449,6 +2726,7 @@
   <div class="text-block">
     <span class="section-label"><span class="num">04</span>Book</span>
     <h2>Six Attempts: Six White Lights</h2>
+    <p class="problem-line">Lifters train perfectly for months, then lose on the day &mdash; because nobody taught them how a competition actually works.</p>
     <ul>
       <li><strong>Target Focus:</strong> Technical standards, platform mastery, and physical peaking protocols for competitive Olympic lifters.</li>
       <li><strong>The Value:</strong> Eliminates platform nerves and tactical errors by mapping out exact warm-up room strategies and attempt selections.</li>
@@ -2505,6 +2783,7 @@
   <div class="text-block">
     <span class="section-label"><span class="num">05</span>Book</span>
     <h2>Female Olympic Weightlifters</h2>
+    <p class="problem-line">Almost every strength manual on the market was built on research done on men, then handed to women anyway.</p>
     <ul>
       <li><strong>100-Athlete Study:</strong> Built entirely on a real-world multi-year experiment tracking 100 female lifters across all performance levels.</li>
       <li><strong>Hormonal Syncing:</strong> Teaches coaches and athletes how to read female hormones and sync training blocks to avoid injury.</li>
@@ -2561,6 +2840,7 @@
   <div class="text-block">
     <span class="section-label"><span class="num">06</span>Book</span>
     <h2>How to Win Olympic Weightlifting Competitions</h2>
+    <p class="problem-line">You love the sport and you want to compete &mdash; without your first platform feeling like a room full of rules nobody explained.</p>
     <ul>
       <li><strong>Competition Strategy:</strong> A practical guide to attempt selection, pacing, and reading the competition as it unfolds.</li>
       <li><strong>Technical Preparation:</strong> Sharpens the specific skills and habits that hold up under real platform pressure, not just in training.</li>
